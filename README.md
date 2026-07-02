@@ -4,6 +4,21 @@ A full-stack airline booking application with an Angular front end and a Django 
 
 > **Disclaimer:** This project is a **clone of Cebu Pacific Air's** website, built for academic/learning purposes (Apps Dev 2) only. It is not affiliated with, endorsed by, or connected to Cebu Pacific Air in any way, and is not intended for commercial use.
 
+## Screenshots
+
+| Landing Page | Flight Search Results |
+| --- | --- |
+| ![Landing page screenshot](screenshots/landing-page.png) | ![Flight search results screenshot](screenshots/flights-page.png) |
+
+| Guest Details | Add-Ons |
+| --- | --- |
+| ![Guest details screenshot](screenshots/guest-details-page.png) | ![Add-ons page screenshot](screenshots/add-ons-page.png) |
+
+| Booking Summary | Confirmation |
+| --- | --- |
+| ![Booking summary screenshot](screenshots/booking-summary-page.png) | ![Confirmation page screenshot](screenshots/confirmation-page.png) |
+
+
 ## Tech Stack
 
 **Frontend** — `airline-booking-angular/`
@@ -36,22 +51,6 @@ Airline Booking System/
 - **Flight** — flight number, route, schedule, price, seat availability
 - **Booking** — links a user to departing/returning flights, insurance, total price, and a generated booking reference
 - **Passenger** — passenger details tied to a booking (adult/child/infant)
-
-## Screenshots
-
-<!-- Add application screenshots below. Place image files in a `screenshots/` folder at the project root and update the paths accordingly. -->
-
-| Landing Page | Flight Search Results |
-| --- | --- |
-| ![Landing page screenshot](screenshots/landing-page.png) | ![Flight search results screenshot](screenshots/flights-page.png) |
-
-| Guest Details | Add-Ons |
-| --- | --- |
-| ![Guest details screenshot](screenshots/guest-details-page.png) | ![Add-ons page screenshot](screenshots/add-ons-page.png) |
-
-| Booking Summary | Confirmation |
-| --- | --- |
-| ![Booking summary screenshot](screenshots/booking-summary-page.png) | ![Confirmation page screenshot](screenshots/confirmation-page.png) |
 
 ## Getting Started
 
