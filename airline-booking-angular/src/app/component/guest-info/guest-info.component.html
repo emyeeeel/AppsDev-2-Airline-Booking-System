@@ -1,0 +1,176 @@
+<div class="guest-details">
+  <div class="header">
+    <div class="header-texts">
+      <span class="subtitle">Now that you've selected your flight, enter your details.</span>
+      <h1>Guest Details</h1>
+    </div>
+  </div>
+  
+  <div class="main-container">
+    <section class="tab-container">
+      <!-- Side tabs -->
+      <div class="tab-nav">
+        <div class="tab-wrapper">
+          <div *ngFor="let passenger of passengers; let i = index" 
+               class="tab-item" 
+               [class.active]="passenger.isActive"
+               (click)="setActivePassenger(i)">
+            <img alt="Error icon" class="error-icon" src="https://cdn.media.amplience.net/i/cebupacificair/paxerroricon?fmt=auto&maxW=1920&maxH=1920">
+            <span>
+              {{ passenger.type }} {{ getPassengerNumber(passenger.type, i) }}
+              <img alt="Error icon for mobile" class="error-icon" src="https://cdn.media.amplience.net/i/cebupacificair/paxerroricon?fmt=auto&maxW=1920&maxH=1920">
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main form container -->
+      <div class="form-container">
+        <div *ngFor="let passenger of passengers; let i = index">
+          <div *ngIf="passenger.isActive" class="guest-form">
+            <!-- Bundle Section -->
+            <div class="bundle-section">
+              <h6>SELECTED BUNDLES FOR THIS GUEST</h6>
+              <div class="bundles">
+                <div class="bundle">
+                  <div class="route">MNL-MEL</div>
+                  <div class="bundle-info">
+                    GO Basic
+                    <img alt="Go Basic Icon" class="bundle-icon" src="https://cdn.media.amplience.net/i/cebupacificair/GOBasic-icon?fmt=auto&maxW=1920&maxH=1920">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Name Section -->
+            <h6 class="section-title">Name</h6>
+            <p class="section-subtitle">Please make sure that you enter your name exactly as it is shown on your Valid ID</p>
+            
+            <div class="name-fields full-name">
+              <!-- Title Dropdown -->
+              <div class="form-field title-label">
+                <span class="field-label">Title <span>*</span></span>
+                <select [(ngModel)]="passenger.name.title" (ngModelChange)="onPassengerUpdate()" required>
+                  <option value="">Select</option>
+                  <option value="Mr">Mr.</option>
+                  <option value="Mrs">Mrs.</option>
+                  <option value="Ms">Ms.</option>
+                </select>
+              </div>
+
+              <!-- First Name Group -->
+              <div class="first-name-group">
+                <div class="form-field first-name">
+                  <span class="field-label">First name<span>*</span></span>
+                  <input type="text" required
+                  [(ngModel)]="passenger.name.firstName" 
+                  (ngModelChange)="onPassengerUpdate()"
+                  placeholder="Enter first name">
+                </div>
+
+                <!-- No First Name Checkbox -->
+                <div class="checkbox">
+                  <label for="forwork-{{i}}">
+                    <input type="checkbox"  
+                          [(ngModel)]="passenger.name.hasNoFirstName" (ngModelChange)="onPassengerUpdate()">
+                    I have no first name
+                    <span class="checkmark"></span>
+                  </label>
+                  <a class="tool-tip">
+                    <img src="https://cdn.media.amplience.net/i/cebupacificair/help?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="Tooltip Icon">
+                  </a>
+                </div>
+              </div>
+
+              <!-- Last Name -->
+              <div class="form-field last-name">
+                <span class="field-label">Last name<span>*</span></span>
+                <input type="text" required
+                  [(ngModel)]="passenger.name.lastName" 
+                  (ngModelChange)="onPassengerUpdate()"
+                  placeholder="Enter last name">
+              </div>
+            </div>
+
+            <!-- Date of Birth -->
+            <h6 class="section-title">Date of Birth</h6>
+            <div class="date-fields dob">
+              <div class="form-field day">
+                <span class="field-label">Day<span>*</span></span>
+                <select [(ngModel)]="passenger.dateOfBirth.day" (ngModelChange)="onPassengerUpdate()" required>
+                  <option value="" disabled selected>DD</option>
+                  <option *ngFor="let d of days" [value]="d">{{ d }}</option>
+                </select>
+              </div>
+              <div class="form-field month">
+                <span class="field-label">Month<span>*</span></span>
+                <select [(ngModel)]="passenger.dateOfBirth.month" (ngModelChange)="onPassengerUpdate()" required>
+                  <option value="" disabled selected>Month</option>
+                  <option *ngFor="let month of months; let i = index" [value]="i + 1">
+                    {{ month }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-field year">
+                <span class="field-label">Year<span>*</span></span>
+                <select [(ngModel)]="passenger.dateOfBirth.year" (ngModelChange)="onPassengerUpdate()" required>
+                  <option value="" disabled selected>Year</option>
+                  <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Nationality -->
+            <div class="nationality-field">
+              <div class="form-field">
+                <span class="field-label">Nationality<span>*</span></span>
+                <select [(ngModel)]="passenger.nationality" (ngModelChange)="onPassengerUpdate()" required>
+                  <option value="" disabled selected>Select nationality</option>
+                  <option *ngFor="let country of countries" [value]="country">
+                    {{ country }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Go Rewards -->
+            <div class="membership-field">
+              <div class="form-field">
+                <span class="field-label">Go Rewards Membership ID (Optional)</span>
+                <input type="text" placeholder="e.g. 4041178445">
+              </div>
+            </div>
+
+            <div class="checkbox-section">
+              <!-- Declaration Checkbox -->
+              <div class="checkbox">
+                <label for="forwork-{{i}}">
+                  <input type="checkbox" formcontrolname="hasNoFirstName" name="forwork-{{i}}" id="forwork-{{i}}">
+                  I have a declaration / request&nbsp;
+                  <span class="checkmark"></span>
+                </label>
+                <a class="tool-tip">
+                  <img src="https://cdn.media.amplience.net/i/cebupacificair/help?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="Tooltip Icon">
+                </a>
+              </div>
+              <!-- PWD Checkbox -->
+              <div class="checkbox">
+                <label for="forwork-{{i}}">
+                  <input type="checkbox" formcontrolname="hasNoFirstName" name="forwork-{{i}}" id="forwork-{{i}}">
+                  I am a Person with Disability&nbsp;
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+
+
+            <div class="next-button" *ngIf="currentPassengerIndex < passengers.length - 1">
+              <a class="btn-next" (click)="nextPassenger()">Next guest <img class="arrow-icon" src="https://cdn.media.amplience.net/i/cebupacificair/nextarrow?fmt=auto&maxW=1920&maxH=1920"></a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

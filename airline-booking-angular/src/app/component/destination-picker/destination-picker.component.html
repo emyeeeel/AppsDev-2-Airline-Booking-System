@@ -1,0 +1,45 @@
+<div class="location-group">
+  <!-- From Section -->
+  <div class="location-container">
+    <mat-form-field>
+      <mat-label>From</mat-label>
+      <input matInput
+            [value]="displayFrom"
+            placeholder="Select Origin"
+            readonly
+            (click)="handleFromClick()"
+            class="origin-input location-picker-element">
+    </mat-form-field>
+    <div *ngIf="showFromPopup" class="location-picker-element">
+      <app-location-popup 
+        [excludedCityId]="selectedToCityId"
+        (locationSelected)="handleLocationSelected($event, 'from')">
+      </app-location-popup>
+    </div>
+  </div>
+
+  <!-- Swap Icon -->
+  <div class="swap-icon" (click)="swapLocations()">
+    <img alt="swap" 
+         src="https://cdn.media.amplience.net/i/cebupacificair/switch_route_inactive?fmt=auto&amp;maxW=24&amp;maxH=24&amp;w=24">
+  </div>
+
+  <!-- To Section -->
+  <div class="location-container">
+    <mat-form-field>
+      <mat-label>To</mat-label>
+      <input matInput
+            [value]="displayTo"
+            placeholder="Select Destination"
+            readonly
+            (click)="handleToClick()"
+            class="origin-input location-picker-element">
+    </mat-form-field>
+    <div *ngIf="showToPopup" class="location-picker-element">
+      <app-location-popup
+        [excludedCityId]="selectedFromCityId"
+        (locationSelected)="handleLocationSelected($event, 'to')">
+      </app-location-popup>
+    </div>
+  </div>
+</div>

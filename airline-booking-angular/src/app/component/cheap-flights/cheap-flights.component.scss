@@ -1,0 +1,755 @@
+.c-cheap-flights {
+  background: #F7F7F7;
+  padding: 80px 0
+}
+
+.c-cheap-flights .container {
+  max-width: 792px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights .container {
+      padding:0
+  }
+}
+
+.c-cheap-flights .container>a {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights .container>a {
+      max-width:262px
+  }
+}
+
+.c-cheap-flights h2 {
+  font-family: Noto Sans,sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  text-align: center;
+  color: #333;
+  margin: 0 0 16px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights h2 {
+      font-size:23px;
+      margin: 0 0 36px
+  }
+}
+
+.c-cheap-flights__tab {
+  text-align: center;
+  margin-bottom: 27px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__tab {
+      margin-bottom:32px
+  }
+}
+
+.c-cheap-flights__tab a {
+  font-family: Noto Sans,sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 150%;
+  letter-spacing: .005em;
+  color: #a0a0a0;
+  padding: 0 10px 8px;
+  margin-right: 20px;
+  transition: color .3s ease;
+  position: relative
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__tab a {
+      padding:0 12px 8px
+  }
+}
+
+.c-cheap-flights__tab a:last-child {
+  margin-right: 0
+}
+
+.c-cheap-flights__tab a:before {
+  content: "";
+  height: 4px;
+  background-color: #52caf5;
+  position: absolute;
+  bottom: 0;
+  left: 0
+}
+
+.c-cheap-flights__tab a.is-active,.c-cheap-flights__tab a:hover {
+  color: #333;
+  transition: color .3s ease
+}
+
+.c-cheap-flights__tab a.is-active:before,.c-cheap-flights__tab a:hover:before {
+  animation: underline .3s cubic-bezier(.64,.36,0,0) forwards
+}
+
+@keyframes underline {
+  0% {
+      width: 0
+  }
+
+  to {
+      width: 100%
+  }
+}
+
+.c-cheap-flights__card {
+  margin-bottom: 16px;
+  overflow: hidden;
+  cursor: pointer
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__card {
+      margin-bottom:24px
+  }
+}
+
+.c-cheap-flights__card:last-child {
+  margin-bottom: 0
+}
+
+.c-cheap-flights__card figure {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 100%
+}
+
+.c-cheap-flights__card figure:before {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 20;
+  width: 111%;
+  height: 111%;
+  content: "";
+  background: linear-gradient(0deg,rgba(255,205,0,.95),rgba(255,205,0,.95)),linear-gradient(180deg,rgba(0,0,0,0) 28.45%,#fff 105.17%);
+  transition: opacity .3s ease-in
+}
+
+@media all and (-ms-high-contrast: none),(-ms-high-contrast: active) {
+  .c-cheap-flights__card figure:before {
+      width: 200%
+  }
+}
+
+.c-cheap-flights__card figure img {
+  border-radius: 4px;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+  height: 100%
+}
+
+.c-cheap-flights__card figure:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,rgba(0,0,0,0) 28.45%,#000000 105.17%);
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.c-cheap-flights__card--details {
+  position: absolute;
+  bottom: -34px;
+  z-index: 30;
+  width: 100%;
+  height: auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  transition: bottom .3s ease
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__card--details {
+      padding:0 24px;
+      bottom: -70px
+  }
+}
+
+.c-cheap-flights__card--details span {
+  font-family: Noto Sans,sans-serif;
+  font-size: 10px;
+  line-height: 140%;
+  letter-spacing: .004em;
+  color: #fff;
+  transition: color .3s ease-in
+}
+
+.c-cheap-flights__card--details span.price {
+  font-family: Noto Sans,sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 143%;
+  color: #ffcd00;
+  margin-bottom: 4px
+}
+
+.c-cheap-flights__card--details span.place {
+  font-family: Noto Sans,sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 200%;
+  letter-spacing: .005em
+}
+
+.c-cheap-flights__card--details span.date {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  transition: margin .3s ease-in
+}
+
+.c-cheap-flights__card--details a {
+  padding: 8px 16px;
+  font-size: 15px;
+  line-height: 150%;
+  display: none
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__card--details a {
+      display:block
+  }
+}
+
+.c-cheap-flights__card:hover figure:before {
+  opacity: 1;
+  transition: opacity .3s ease-in
+}
+
+.c-cheap-flights__card:hover .c-cheap-flights__card--details {
+  bottom: -4px;
+  transition: bottom .3s ease
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__card:hover .c-cheap-flights__card--details {
+      bottom:16px
+  }
+}
+
+.c-cheap-flights__card:hover .c-cheap-flights__card--details span {
+  color: #0060a7;
+  transition: color .3s ease-in
+}
+
+.c-cheap-flights__card:hover .c-cheap-flights__card--details span.date {
+  margin-top: 0;
+  transition: margin .3s ease-in
+}
+
+.c-cheap-flights__card:hover .c-cheap-flights__card--details a {
+  opacity: 1;
+  z-index: 10
+}
+
+.c-cheap-flights__cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 327px;
+  margin: 0 auto
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards {
+      max-width:100%
+  }
+}
+
+.note {
+  font-family: Noto Sans,sans-serif;
+  font-size: 11px;
+  line-height: 150%;
+  letter-spacing: .004em;
+  color: #006fc1;
+  margin-top: 12px;
+  margin-bottom: 24px;
+  width: 100%
+}
+
+@media only screen and (min-width: 767px) {
+  .note {
+      margin-top:10px;
+      margin-bottom: 12px
+  }
+}
+
+.c-cheap-flights__cards.three-columns>div {
+  flex-basis: 50%;
+  max-width: 156px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.three-columns>div {
+      flex-basis:33.33%;
+      max-width: 248px
+  }
+}
+
+.c-cheap-flights__cards.three-columns>div:nth-child(odd)>div:first-child {
+  height: 189px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.three-columns>div:nth-child(odd)>div:first-child {
+      height:304px
+  }
+}
+
+.c-cheap-flights__cards.three-columns>div:nth-child(odd)>div:last-child {
+  height: 110px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.three-columns>div:nth-child(odd)>div:last-child {
+      height:174px
+  }
+}
+
+.c-cheap-flights__cards.three-columns>div:nth-child(even)>div:first-child {
+  height: 110px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.three-columns>div:nth-child(even)>div:first-child {
+      height:174px
+  }
+}
+
+.c-cheap-flights__cards.three-columns>div:nth-child(even)>div:last-child {
+  height: 189px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.three-columns>div:nth-child(even)>div:last-child {
+      height:304px
+  }
+}
+
+.c-cheap-flights__cards.three-columns>div:last-of-type {
+  display: none
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.three-columns>div:last-of-type {
+      display:block
+  }
+}
+
+.c-cheap-flights__cards.two-columns {
+  align-items: flex-start
+}
+
+.c-cheap-flights__cards.two-columns>div figure img {
+  width: 100%;
+  height: 100%
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child {
+  flex-basis: 50%;
+  max-width: 156px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.two-columns>div:first-child {
+      flex-basis:68%;
+      max-width: 520px
+  }
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div:first-child figure img {
+  height: 150px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.two-columns>div:first-child>div:first-child figure img {
+      height:300px
+  }
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div figure img {
+  width: 100%;
+  height: 150px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.two-columns>div:first-child>div figure img {
+      height:178px
+  }
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div .c-cheap-flights__card--details {
+  bottom: -14px
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div .c-cheap-flights__card--details .date {
+  margin-bottom: 0
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div a {
+  position: absolute;
+  right: 24px;
+  bottom: -26px
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div:hover .c-cheap-flights__card--details {
+  bottom: 12px
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div:hover .c-cheap-flights__card--details .date {
+  margin-bottom: 0
+}
+
+.c-cheap-flights__cards.two-columns>div:first-child>div:hover a {
+  bottom: 0
+}
+
+.c-cheap-flights__cards.two-columns>div:last-of-type {
+  flex-basis: 50%;
+  max-width: 156px;
+  height: 316px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.two-columns>div:last-of-type {
+      flex-basis:32%;
+      max-width: 248px;
+      max-height: 502px
+  }
+}
+
+.c-cheap-flights__cards.two-columns>div:last-of-type>div:last-child {
+  height: 100%
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.two-columns>div:last-of-type>div:last-child {
+      height:502px
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.two-columns>div:last-of-type>div:last-child figure img {
+      height:502px
+  }
+}
+
+@media all and (-ms-high-contrast: none),(-ms-high-contrast: active) {
+  .c-cheap-flights__cards.two-columns>div:last-of-type>div:last-child figure {
+      height: 502px
+  }
+}
+
+.c-cheap-flights__cards.one-column>div {
+  width: 100%
+}
+
+.c-cheap-flights__cards.one-column>div>div {
+  height: 150px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-cheap-flights__cards.one-column>div>div {
+      height:239px
+  }
+}
+
+.c-cheap-flights__cards.one-column>div>div figure img {
+  width: 100%
+}
+
+.c-cheap-flights__cards.one-column>div>div .c-cheap-flights__card--details {
+  bottom: -14px
+}
+
+.c-cheap-flights__cards.one-column>div>div .c-cheap-flights__card--details .date {
+  margin-bottom: 0
+}
+
+.c-cheap-flights__cards.one-column>div>div a {
+  position: absolute;
+  right: 24px;
+  bottom: -26px
+}
+
+.c-cheap-flights__cards.one-column>div>div:hover .c-cheap-flights__card--details {
+  bottom: 12px
+}
+
+.c-cheap-flights__cards.one-column>div>div:hover .c-cheap-flights__card--details .date {
+  margin-bottom: 0
+}
+
+.c-cheap-flights__cards.one-column>div>div:hover a {
+  bottom: 0
+}
+
+.c-map {
+  background-color: #f6df55
+}
+
+.c-map .container {
+  max-width: 1056px;
+  margin: 0 auto;
+  padding: 0 24px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  top: -1px;
+  z-index: 10
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map .container {
+      flex-wrap:initial;
+      padding: 0 0 20px
+  }
+}
+
+.c-map .container.INT-tab {
+  height: 620px
+}
+
+.c-map .container .region-map-image:first-child {
+  margin-left: -17%;
+  max-width: 135%;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map .container .region-map-image {
+      height:600px
+  }
+
+  .c-map .container .region-map-image:first-child {
+      position: absolute;
+      max-width: 1120px;
+      margin-left: -81%;
+      margin-top: -62px;
+      border-top-right-radius: 91% 20%;
+      border-top-left-radius: unset;
+      z-index: -1;
+      height: 617px
+  }
+}
+
+// .c-map__wave {
+//   background-image: url(Wave.f60328d3305c499f.svg);
+//   background-size: 1284px 100%;
+//   background-color: #fff;
+//   background-position: top center;
+//   height: 117px;
+//   width: 100%
+// }
+
+@media only screen and (min-width: 767px) {
+  .c-map__wave {
+      background:#fff;
+      height: auto
+  }
+}
+
+.c-map__wave img {
+  width: 100%;
+  height: 100%;
+  display: none
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__wave img {
+      display:block
+  }
+}
+
+.c-map__copy {
+  flex-basis: 100%;
+  margin-bottom: 24px;
+  z-index: 2
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__copy {
+      flex-basis:40%;
+      margin-bottom: 0
+  }
+}
+
+.c-map__copy h2 {
+  font-family: Noto Sans,sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 61px;
+  letter-spacing: .0025em;
+  color: #0060a7;
+  margin-bottom: 8px
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__copy h2 {
+      font-size:38px
+  }
+}
+
+.c-map__copy p {
+  font-family: Noto Sans,sans-serif;
+  font-size: 15px;
+  line-height: 150%;
+  letter-spacing: .005em;
+  color: #0060a7;
+  margin-bottom: 16px;
+  margin-right: 0
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__copy p {
+      max-width:400px
+  }
+}
+
+.c-map__copy a {
+  font-size: 15px;
+  line-height: 150%;
+  letter-spacing: .0125em;
+  padding: 8px 16px;
+  max-width: 326px;
+  margin: 0 auto;
+  display: block
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__copy a {
+      padding:16px;
+      line-height: 130%;
+      max-width: 215px;
+      margin: 0
+  }
+}
+
+.c-map__map {
+  flex-basis: 100%;
+  position: relative
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__map {
+      flex-basis:60%
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__map--container {
+      height:600px
+  }
+}
+
+.c-map__map--tab {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center
+}
+
+@media only screen and (min-width: 767px) {
+  .c-map__map--tab {
+      position:absolute;
+      right: 0;
+      top: 86px;
+      text-align: right;
+      margin-bottom: 0;
+      justify-content: initial
+  }
+}
+
+.c-map__map--tab.INT-tab {
+  margin-top: -260px
+}
+
+.c-map__map--tab a {
+  font-family: Noto Sans,sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 140%;
+  text-align: center;
+  color: #006fc1;
+  margin-right: 8px;
+  padding: 7px 7px 5px;
+  border-radius: 6px;
+  transition: all .3s ease;
+  transition-property: background,color;
+  display: flex
+}
+
+.c-map__map--tab a svg {
+  margin-right: 4px
+}
+
+.c-map__map--tab a svg path {
+  transition: all .3s ease
+}
+
+.c-map__map--tab a:last-child {
+  margin-right: 0
+}
+
+.c-map__map--tab a:hover,.c-map__map--tab a.is-active {
+  background-color: #006fc1;
+  color: #fff;
+  transition: all .3s ease;
+  transition-property: background,color
+}
+
+.c-map__map--tab a:hover svg path,.c-map__map--tab a.is-active svg path {
+  fill: #fff;
+  transition: all .3s ease
+}
+
+.c-map__map--tab a .icon {
+  margin-top: -3px
+}
+
+.o-btn--primary-blue {
+  width: 100%;
+  max-width: 100%;
+  max-height: 48px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: Noto Sans,sans-serif;
+  letter-spacing: .015em;
+  line-height: 24px;
+  outline: none!important;
+  padding: 12px 0;
+  transition: box-shadow .3s ease;
+  text-align: center;
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(168.99deg,#00a4e5 17.86%,#006fc1 87.93%);
+  text-decoration: none;
+  
+}

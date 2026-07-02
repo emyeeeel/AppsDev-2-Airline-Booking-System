@@ -1,0 +1,67 @@
+.flight-price-container {
+    display: flex;
+    align-items: center;
+    font-family: "Noto Sans", sans-serif;
+    color: #212529;
+    background: #ffffff;
+    box-shadow: 0 4px 10px #00000012;
+    border-radius: 12px;
+    max-width: 1056px;
+    width: 100%;
+    margin: 0 auto 24px;
+  }
+
+  .nav-button {
+    box-sizing: border-box;
+    min-width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .nav-arrow {
+    vertical-align: middle;
+    max-width: 24px;
+    width: auto;
+  }
+
+  .flight-card {
+    box-sizing: border-box;
+    width: 135px;
+    max-width: 138px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 7.5px;
+    border-right: 1px solid #e2e2e2;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .flight-date {
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.004em;
+    color: #575757;
+    margin-bottom: 4px;
+  }
+
+  .price {
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: 0.005em;
+    margin-bottom: 4px;
+  }
+
+  .highlight {
+    background: linear-gradient(175.64deg, #fbe700 -27.92%, #ffcd00 102.49%);
+  }
+
+  .highlight .price {
+    color: #0060a7;
+    font-weight: 600;
+  }

@@ -1,0 +1,14 @@
+<div class="booking-progress">
+    <ul [style.--progress-percent]="progressPercentage">
+      <li 
+        *ngFor="let step of steps; let i = index" 
+        [class.active]="i <= selectedIndex"
+      >
+        <img 
+          [src]="i < selectedIndex + 1 ? step.done : step.not_yet" 
+          [alt]="step.label + ' logo'"
+        >
+        {{ step.label }}
+      </li>
+    </ul>
+  </div>

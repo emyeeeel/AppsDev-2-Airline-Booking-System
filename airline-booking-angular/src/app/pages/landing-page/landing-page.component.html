@@ -1,0 +1,58 @@
+<main class="main">
+    <app-header></app-header>
+    <div class="background-image-container">
+      <div class="header-background">
+        <img [src]="currentBackground.image" alt="Destination background" />
+      </div>
+      <div class="background-image-place">
+        {{ currentBackground.location }}
+      </div>
+    </div>
+    <div class="booking-container">
+      <!-- First Row -->
+      <div class="booking-titles">
+        <img class="ng-tns-c13-13" src="https://cdn.media.amplience.net/i/cebupacificair/Flight-Icon?fmt=auto&amp;maxW=1920&amp;maxH=1920">
+        <p>Flight</p>
+        <select class="flight-type-dropdown" [(ngModel)]="selectedFlightType">
+          <option value="Round-trip">Round-trip</option>
+          <option value="One-way">One-way</option>
+          <option value="Multi-city">Multi-city</option>
+        </select>
+      </div>
+    
+      <!-- Second Row -->
+      <div class="booking-controls">
+        <div class="destination-container">
+          <app-destination-picker></app-destination-picker>
+        </div>
+        <div class="date-container">
+          <app-date-picker [flightType]="selectedFlightType"></app-date-picker>
+        </div>
+        <div class="button-container">
+          <app-search-flight-button (searchClicked)="onSearchClick()" [text]="searchButtonText"></app-search-flight-button>
+        </div>
+      </div>
+    </div>
+
+    <app-sns-stories></app-sns-stories>
+    
+    <hr>
+
+    <app-advertisement></app-advertisement>
+
+    <app-cheap-flights></app-cheap-flights>
+    <app-latest-stories></app-latest-stories>
+    
+    <app-search-flight-popup 
+      *ngIf="showSearchPopup"
+      (close)="showSearchPopup = false"
+    ></app-search-flight-popup>
+  </main>
+  <app-search-flight-popup 
+  *ngIf="showSearchPopup"
+  (close)="showSearchPopup = false"
+></app-search-flight-popup>
+  <app-home-footer></app-home-footer>
+  
+  <router-outlet />
+  

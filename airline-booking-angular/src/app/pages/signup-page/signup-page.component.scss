@@ -1,0 +1,189 @@
+:host {
+    display: block;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; // Prevent entire page scrolling
+    background-image: url("https://cdn.media.amplience.net/i/cebupacificair/Islas%20de%20Gigates%20Iloilo_LJ%20(1)?fmt=auto&maxW=1920&maxH=1920&w=1920&qlt=60&fmt.options=interlaced");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; // Keep background fixed
+}
+
+.login-container {
+    width: 400px;
+    height: 100vh; // Constrain to viewport height
+    margin: 0 auto;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; // Enable vertical scrolling
+    position: relative;
+    
+    // Remove transform and use padding instead
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    height: 100px;
+    flex-shrink: 0; // Prevent logo from shrinking
+
+    h1 {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-height: 40px;
+            max-width: 200px;
+            cursor: pointer;
+        }
+    }
+}
+
+.login-contents {
+    flex: 1;
+    min-height: min-content; // Allow content to expand
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 40px; // Add space at bottom
+}
+
+h2 {
+  color: #5e5e5e;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.login-button {
+  margin-bottom: 30px;
+  width: 316px;
+
+  button {
+      width: 100%;
+      height: 48px;
+      font-weight: 700;
+      font-size: 15px;
+      font-family: Noto Sans, sans-serif;
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      background: linear-gradient(168.99deg, #00a4e5 17.86%, #006fc1 87.93%);
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+
+      &:hover {
+          box-shadow: 0 4px 12px rgba(0, 116, 204, 0.25);
+      }
+  }
+}
+
+label {
+  font-size: 14px;
+  color: #5e5e5e;
+  font-weight: 500;
+  width: 316px;
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.email-container,
+.last-name-container,
+.first-name-container,
+.password-container {
+  width: 316px;
+  
+  input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+          outline: none;
+          border-color: #007bff;
+          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+      }
+
+      &::placeholder {
+          color: #adb5bd;
+      }
+  }
+}
+
+.password-requirements {
+  width: 316px;
+  margin: 8px 0;
+  color: #6c757d;
+  font-size: 12px;
+
+  .requirements-title {
+      font-weight: 500;
+      margin-bottom: 6px;
+  }
+
+  ul {
+      list-style: none;
+      padding-left: 20px;
+      margin: 0;
+
+      li {
+          position: relative;
+          margin-bottom: 4px;
+
+          &::before {
+              content: "•";
+              position: absolute;
+              left: -15px;
+              color: #6c757d;
+              font-size: 14px;
+          }
+      }
+  }
+}
+
+hr {
+  width: 316px;
+  border: 0;
+  border-top: 1px solid #dee2e6;
+  margin: 20px 0;
+}
+
+.signup-info {
+  width: 316px;
+  text-align: center;
+  font-size: 14px;
+  color: #5e5e5e;
+
+  span {
+      cursor: pointer;
+      color: #007bff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+          color: #0056b3;
+          text-decoration: underline;
+      }
+  }
+}
+
+.error-message {
+  width: 316px;
+  color: #dc3545;
+  font-size: 12px;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+}

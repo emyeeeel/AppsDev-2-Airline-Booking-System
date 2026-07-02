@@ -1,0 +1,262 @@
+header {
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  transition: all 0.3s ease;
+  overflow: visible;
+
+  .header-top {
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+
+  .header-bottom {
+    background-color: transparent;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    
+    a {
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+  }
+
+  // Combined hover and forced hover state
+  &.force-hover, &:hover {
+    .header-top {
+      background-color: rgba(0, 164, 229, 0.9);
+      
+      .material-icons:not(.warning-icon) {
+        color: white !important;
+      }
+    }
+    
+    .header-bottom {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      
+      a, .login-group, .search-icon {
+        color: #006FC1;
+        text-shadow: none;
+      }
+      
+      .material-icons {
+        color: #006FC1 !important;
+      }
+      
+      .logo-header-container {
+        background-image: url('https://cdn.media.amplience.net/i/cebupacificair/ProjectSunrise-LinearColored-Resized-206x67?fmt=auto&maxW=1920&maxH=1920&w=206&h=67&sm=c');
+      }
+    }
+  }
+}
+
+.header-top {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  font-size: 11px;
+  height: 35px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .material-icons {
+    color: white !important;
+    transition: all 0.2s ease;
+    
+    &:not(.warning-icon) {
+      font-size: 16px;
+    }
+  }
+
+  .advisory {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 20%;
+
+    .warning-icon {
+      color: #FFD700 !important;
+      background-color: rgba(255, 215, 0, 0.1);
+      border-radius: 50%;
+      padding: 4px;
+      font-size: 18px;
+    }
+
+    .chevron {
+      cursor: pointer;
+      padding: 2px;
+      border-radius: 2px;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  .viewall {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    margin-right: auto;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  [class$="-selector"], .help {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .help {
+    font-weight: bold;
+    padding-right: 20%;
+  }
+}
+
+.header-bottom {
+  position: relative;
+  z-index: 2;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  .material-icons {
+    color: white !important;
+    transition: color 0.3s ease;
+  }
+
+  .logo-header-container {
+    width: 206px;
+    height: 67px;
+    background-image: url('https://cdn.media.amplience.net/i/cebupacificair/ProjectSunrise-LinearWhite-Resized-206x67?fmt=auto&maxW=1920&maxH=1920&w=206&h=67&sm=c');
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-image 0.3s ease;
+  }
+
+  a:not(.login-group a), .login-group {
+    padding: 24px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+    letter-spacing: .005em;
+
+    &:hover {
+      color: #00A4E5;
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #00A4E5;
+      transition: width 0.3s ease;
+    }
+  }
+
+  .login-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    
+    .material-icons {
+      font-size: 24px;
+    }
+
+    a {
+      padding: 0 !important;
+      text-decoration: none;
+    }
+  }
+
+  .search-icon {
+    font-size: 24px;
+    padding: 24px 16px;
+    cursor: pointer;
+
+    &:hover {
+      color: #00A4E5;
+    }
+  }
+}
+
+.login-group {
+  .user-initials {
+    width: 24px;
+    height: 24px;
+    background-color: #FFD700;
+    color: #006FC1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    
+    .header:hover & {
+      background-color: #FFD700;
+      color: #006FC1;
+    }
+  }
+}
+
+:host {
+  display: block;
+  position: relative;
+}
+
+.popup-info-container {
+  position: absolute;
+  top: 100%;
+  right: 10%;
+  width: 57%;
+  max-height: 350px;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}

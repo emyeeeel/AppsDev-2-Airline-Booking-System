@@ -1,0 +1,338 @@
+/* landing-page.component.scss */
+@use 'sass:map';
+
+// Z-index Management
+$z-index: (
+  background: 0,
+  background-element: 1,
+  overlay: 2,
+  background-text: 3,
+  booking-container: 20,
+  content: 11,
+  controls: 12,
+  date-picker: 13,
+  dropdown: 20,
+  dropdown-menu: 30,
+);
+
+// Background Section
+.background-image-container, 
+.header-background {
+  position: relative;
+  overflow: hidden;
+  height: 450px;
+  z-index: map.get($z-index, background);
+  
+  .header-background {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: map.get($z-index, background-element);
+    isolation: isolate;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%);
+      pointer-events: none;
+      z-index: map.get($z-index, overlay);
+    }
+  }
+
+  .background-image-place {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font: 800 72px/140% 'Helvetica Neue', Arial, sans-serif;
+    color: #f7f7f7;
+    text-shadow: 0 8px 18px rgba(0,0,0,.18);
+    white-space: pre-wrap;
+    pointer-events: none;
+    z-index: map.get($z-index, background-text);
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    animation: fadeIn 1s ease-out;
+    
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+}
+
+// Booking Container
+.booking-container {
+  $self: &;
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: map.get($z-index, booking-container);
+  width: 70%;
+  min-height: 160px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #f7f7f7;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+  animation: slideUp 0.6s cubic-bezier(.23,1,.32,1);
+  box-sizing: border-box;
+  pointer-events: all;
+  
+  // New stacking context
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(8px);
+    z-index: -1;
+    border-radius: inherit;
+  }
+
+  .booking-titles {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    position: relative;
+    z-index: map.get($z-index, content);
+
+    img { 
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
+    p {
+      margin: 0;
+      font: 700 15px/1 'Helvetica Neue', Arial, sans-serif;
+      color: #333;
+      white-space: nowrap;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+    }
+  }
+
+  .booking-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 0;
+    width: 100%;
+    flex: 3;
+    position: relative;
+    z-index: map.get($z-index, controls);
+
+    > * {
+      flex: 1 1 0%;
+      min-width: 0;
+      max-height: 55px;
+      position: relative;
+      
+      > * {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .destination-container {
+      max-width: 100%;
+      overflow: visible;
+      display: flex;
+      position: relative;
+      z-index: map.get($z-index, dropdown);
+      
+      // Override child component styles
+      ::ng-deep app-destination-picker {
+        width: 100%;
+        
+        .dropdown-container {
+          top: calc(100% + 8px);
+          box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+          z-index: map.get($z-index, dropdown-menu);
+        }
+      }
+    }
+
+    .date-container {
+      overflow: visible;
+      z-index: map.get($z-index, date-picker);
+    }
+
+    .button-container {
+      flex: 0 1 auto;
+      align-self: flex-end;
+      
+      button {
+        width: 100%;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+
+    @media (max-width: 1200px) {
+      flex-wrap: wrap;
+      gap: 10px;
+
+      > * { 
+        flex: 1 1 calc(50% - 5px);
+        max-width: calc(50% - 5px);
+      }
+      
+      .button-container { 
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .flight-type-dropdown {
+    margin-left: 31%;
+    padding: 8px 32px 8px 12px;
+        border: none;
+        appearance: none;
+        background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e") no-repeat right 8px center/16px;
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0,116,228,.3);
+    }
+
+    option {
+      color: #333;
+      background-color: white;
+      padding: 8px 12px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        filter: brightness(0.95);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    top: 70%;
+    padding: 16px;
+    gap: 16px;
+
+    .flight-type-dropdown {
+      margin-left: 0;
+      max-width: 100%;
+      font-size: 13px;
+    }
+
+    .booking-controls {
+      > * {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+// Header Styles
+app-header {
+  position: relative;
+  z-index: map.get($z-index, dropdown-menu);
+}
+
+// Cheap Flights Section
+.cheap-flights {
+  height: 720px;
+  margin: 80px 0;
+  background: #f7f7f7;
+  position: relative;
+  z-index: map.get($z-index, content);
+  
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 40px 0;
+  }
+}
+
+// Animations
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Print Styles
+@media print {
+  .background-image-container,
+  .sns-stories,
+  .advertisement,
+  app-header,
+  app-home-footer {
+    display: none !important;
+  }
+
+  .booking-container {
+    position: static;
+    transform: none;
+    width: 100%;
+    box-shadow: none;
+    animation: none;
+  }
+}

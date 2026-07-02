@@ -1,0 +1,176 @@
+<app-header [isHoveredByDefault]="true"></app-header>
+<app-loader *ngIf="loading"></app-loader>
+<div class="booking-wrapper">
+  <app-booking-progress [selectedIndex]="currentStepIndex"></app-booking-progress>
+
+  <div class="title-section">
+    <h4 class="title-text"><strong>Customize your flight with our add-ons!</strong></h4>
+  </div>
+
+  <div class="bundles-inclusion">
+    <div class="bundles-container">
+      <div class="bundles-content">
+        <h3 class="ng-tns-c72-130" style="box-sizing: border-box; appearance: none; outline: none; margin-top: 0px; margin-bottom: 0px; font-weight: 700; line-height: 22.5px; font-size: 15px; display: flex; flex-direction: column; font-family: 'Noto Sans', sans-serif; color: rgb(0, 111, 193); margin-right: 3px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+          Bundle inclusions
+        </h3>
+        <a class="drop ng-tns-c72-163"></a>
+      </div>
+    </div>
+  </div>
+
+    <div class="add-ons-container">
+      <div class="add-ons-wrapper">
+        <div class="c-add-ons preselected ng-star-inserted">
+          <div class="c-add-ons container">
+            <h4 class="yellow-line">Add-ons you have</h4>
+          </div>
+          
+          <div class="c-add-ons__info-card ng-star-inserted">
+            <div class="title-and-description">
+              <p>
+                <strong>Add-ons selected for you</strong>
+                We've pre-selected items for you for an enjoyable flight. You can still edit them to your preference or remove them.
+              </p>
+            </div>
+            <div class="button-options">
+              <a class="o-btn o-btn--secondary-blue">Got It</a>
+            </div>
+          </div>
+      
+        <div class="c-add-ons__cards c-add-ons__cards--two-columns preselected ng-star-inserted">
+          <div class="c-add-ons__card ng-star-inserted">
+            <div class="c-add-ons__card__ribbon ng-star-inserted">
+              <h4>PRE-SELECTED FOR YOU</h4>
+            </div>
+            <div class="c-add-ons__card__covid-badge ng-star-inserted">
+              <img class="badge-img" src="https://cdn.media.amplience.net/i/cebupacificair/Badge_SG?fmt=auto&amp;maxW=1920&amp;maxH=1920&amp;h=390&amp;sm=c&amp;&amp;poi={$this.metadata.pointOfInterest.x},{$this.metadata.pointOfInterest.y},{$this.metadata.pointOfInterest.w},{$this.metadata.pointOfInterest.h}&amp;scaleFit=poi">
+            </div>
+            <div class="c-add-ons__card__settings ng-star-inserted">
+              <div class="dropdown__menu">
+                <span class="dropdown__menu-circle"></span>
+                <span class="dropdown__menu-circle"></span>
+                <span class="dropdown__menu-circle"></span>
+              </div>
+            </div>
+            <figure>
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBTravelSure?fmt=auto&amp;maxW=1920&amp;maxH=1920&amp;w=722&amp;sm=c&amp;scaleFit=poi&amp;poi={$this.metadata.pointOfInterest.x},{$this.metadata.pointOfInterest.y},{$this.metadata.pointOfInterest.w},{$this.metadata.pointOfInterest.h}">
+            </figure>
+            <div class="c-add-ons__card__content">
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBTravelSure-Logo?fmt=auto&amp;crop={0%},{0%},{93.17%},{100%}&amp;maxW=1920&amp;maxH=1920">
+              <div class="c-add-ons__card__content__price ng-star-inserted">
+                <span class="ng-star-inserted">Upgrade for as low as</span>
+                <span>
+                  <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/cart_with_check?fmt=auto&amp;maxW=1920&amp;maxH=1920">
+                  PHP 580.00
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="c-add-ons__cards ng-star-inserted">
+          <div class="c-add-ons container">
+            <h4 class="yellow-line">Other add-ons for your trip</h4>
+          </div>
+        </div>
+    
+        <div class="c-add-ons__cards c-add-ons__cards--two-columns preselected ng-star-inserted">
+          <div class="c-add-ons__card ng-star-inserted">
+            <figure>
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/SeatSelector?fmt=auto&amp;maxW=1920&amp;maxH=1920&amp;w=722&amp;sm=c&amp;scaleFit=poi&amp;poi={$this.metadata.pointOfInterest.x},{$this.metadata.pointOfInterest.y},{$this.metadata.pointOfInterest.w},{$this.metadata.pointOfInterest.h}">
+            </figure>
+            <div class="c-add-ons__card__content">
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBSeatSelector-Logo?fmt=auto&amp;crop={0%},{0%},{78.73%},{100%}&amp;maxW=1920&amp;maxH=1920">
+              <div class="c-add-ons__card__content__price ng-star-inserted">
+                <span class="ng-star-inserted">For as low as</span>
+                <span>
+                  <span class="ng-star-inserted">PHP</span>
+                  308.00
+                </span>
+              </div>
+            </div>
+          </div>
+    
+          <div class="c-add-ons__card ng-star-inserted">
+            <figure>
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBBaggage?fmt=auto&amp;maxW=1920&amp;maxH=1920&amp;w=722&amp;sm=c&amp;scaleFit=poi&amp;poi={$this.metadata.pointOfInterest.x},{$this.metadata.pointOfInterest.y},{$this.metadata.pointOfInterest.w},{$this.metadata.pointOfInterest.h}">
+            </figure>
+            <div class="c-add-ons__card__content">
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/new%20ceb%20baggage?fmt=auto&amp;maxW=1920&amp;maxH=1920">
+              <div class="c-add-ons__card__content__price ng-star-inserted">
+                <span class="ng-star-inserted">For as low as</span>
+                <span>
+                  <span class="ng-star-inserted">PHP</span>
+                  759.00
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="c-add-ons__cards c-add-ons__cards--three-columns preselected ng-star-inserted">
+          <div class="c-add-ons__card ng-star-inserted">
+            <figure>
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEB-Meal-SpamNori?fmt=auto&amp;maxW=1920&amp;maxH=1920&amp;w=722&amp;sm=c&amp;scaleFit=poi&amp;poi={$this.metadata.pointOfInterest.x},{$this.metadata.pointOfInterest.y},{$this.metadata.pointOfInterest.w},{$this.metadata.pointOfInterest.h}">
+            </figure>
+            <div class="c-add-ons__card__content">
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBMeals-Logo?fmt=auto&amp;crop={0%},{0%},{69.1%},{100%}&amp;maxW=1920&amp;maxH=1920">
+              <div class="c-add-ons__card__content__price ng-star-inserted">
+                <span class="ng-star-inserted">For as low as</span>
+                <span>
+                  <span class="ng-star-inserted">PHP</span>
+                  200.00
+                </span>
+              </div>
+            </div>
+          </div>
+    
+          <div class="c-add-ons__card ng-star-inserted">
+            <figure>
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBFlexiAddonsLanding?fmt=auto&amp;maxW=1920&amp;maxH=1920&amp;w=722&amp;sm=c&amp;scaleFit=poi&amp;poi={$this.metadata.pointOfInterest.x},{$this.metadata.pointOfInterest.y},{$this.metadata.pointOfInterest.w},{$this.metadata.pointOfInterest.h}">
+            </figure>
+            <div class="c-add-ons__card__content">
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBFlexi-Logo?fmt=auto&amp;crop={0%},{0%},{60.25%},{100%}&amp;maxW=1920&amp;maxH=1920">
+              <div class="c-add-ons__card__content__price ng-star-inserted">
+                <span class="ng-star-inserted">For as low as</span>
+                <span>
+                  <span class="ng-star-inserted">PHP</span>
+                  899.00
+                </span>
+              </div>
+            </div>
+          </div>
+    
+          <div class="c-add-ons__card disable ng-star-inserted">
+            <figure>
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBTransfers-Placeholder?fmt=auto&amp;maxW=1920&amp;maxH=1920&amp;w=722&amp;sm=c&amp;scaleFit=poi&amp;poi={$this.metadata.pointOfInterest.x},{$this.metadata.pointOfInterest.y},{$this.metadata.pointOfInterest.w},{$this.metadata.pointOfInterest.h}">
+            </figure>
+            <div class="c-add-ons__card__content">
+              <div class="unavailable ng-star-inserted">
+                <span>NOT AVAILABLE</span>
+              </div>
+              <img alt="" src="https://cdn.media.amplience.net/i/cebupacificair/CEBTransfers-Logo?fmt=auto&amp;crop={0%},{0%},{87.58%},{100%}&amp;maxW=1920&amp;maxH=1920">
+              <div class="text ng-star-inserted">
+                <p>CEB Transfers is not available in your destination</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons-section">
+    <div class="buttons-container">
+      <button class="back-button" type="button" (click)="navigateBack()">
+        <a>Back</a>
+      </button>
+      <app-search-flight-button 
+          [text]="searchButtonText" 
+          (searchClicked)="navigateToBooking()">
+        </app-search-flight-button>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

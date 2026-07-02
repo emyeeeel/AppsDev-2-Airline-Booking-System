@@ -1,0 +1,167 @@
+<app-header [isHoveredByDefault]="true"></app-header>
+<app-loader *ngIf="loading"></app-loader>
+<div class="flights-wrapper">
+  <div class="flights-container">
+    <div *ngIf="departingFlights.length === 0 && returningFlights.length === 0" class="no-flights">
+      No flights available
+    </div>
+    
+    <app-flight-details *ngIf="!(departingFlights.length === 0 && returningFlights.length === 0)"></app-flight-details>
+
+    <app-booking-progress [selectedIndex]="currentStepIndex"></app-booking-progress>
+
+    <div class="list-container">
+      <div class="flights-list">
+        <div class="jump-to" *ngIf="departingFlights.length > 0 && returningFlights.length > 0 && flightType === 'Round-trip'">
+          <span>Jump to </span>
+          <span class="iata-code depart">
+            <a (click)="scrollTo('departure-section')" class="scroll-link">
+              {{ departingFlights[0]!.departure_airport!.IATA_code }} - 
+              {{ departingFlights[0]!.arrival_airport!.IATA_code }}
+            </a>
+          </span>
+          <span class="iata-code arrival" *ngIf="flightType === 'Round-trip'">
+            <a (click)="scrollTo('arrival-section')" class="scroll-link">
+              {{ returningFlights[0]!.departure_airport!.IATA_code }} - 
+              {{ returningFlights[0]!.arrival_airport!.IATA_code }}
+            </a>
+          </span>
+        </div>
+  
+              
+        <div class="flight-section" *ngIf="departingFlights.length > 0">
+            <p class="flight-title">Select your departing flight</p>
+            <div id="departure-section">
+                <span class="city">{{ departureCityName }} <span class="code">{{ departingFlights[0]!.departure_airport!.IATA_code }}</span></span>
+                <img src="https://cdn.media.amplience.net/i/cebupacificair/flight_24px?fmt=auto&maxW=1920&maxH=1920&w=32" alt="flight-logo">
+                <span class="city">{{ arrivalCityName }} <span class="code">{{ departingFlights[0]!.arrival_airport!.IATA_code }}</span></span>
+            </div>
+          <div *ngFor="let flight of (selectedDepartingFlight ? [selectedDepartingFlight] : departingFlights)" 
+            class="flight-card"
+            (click)="onDepartingFlightSelect(flight)"
+            [class.selected]="selectedDepartingFlight === flight">
+            <div class="depart-arrival-details">
+              <div class="departure">
+                <p>{{ flight.departure_time | date: 'h:mm a' }}</p>
+                <div class="departure-text">
+                  <img src="https://www.cebupacificair.com/assets/images/icon-flight_takeoff.png" 
+                      alt="depart-logo">
+                  <p>Depart - {{ flight.departure_airport.IATA_code }}</p>
+                </div>
+              </div>
+  
+              <div class="icon-divider">
+                <img src="https://cdn.media.amplience.net/i/cebupacificair/flight-icon-cebupacific?fmt=auto&maxW=1920&maxH=1920" 
+                    alt="flight-icon">
+              </div>
+  
+              <div class="arrival">
+                <p>{{ flight.arrival_time | date: 'h:mm a' }}</p>
+                <div class="arrival-text">
+                  <img src="https://www.cebupacificair.com/assets/images/icon-flight_landing.png" 
+                      alt="arrive-logo">
+                  <p>Arrive - {{ flight.arrival_airport.IATA_code }}</p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="time-duration">
+              <p>{{ formatDuration(flight.duration) }}</p>
+            </div>
+  
+            <div class="flight-number">
+              <p>{{ flight.flight_number }}</p>
+            </div>
+  
+            <div class="price">
+              <p>PHP {{ flight.price | number:'1.2-2' }}</p>
+            </div>
+          </div>
+          <div *ngIf="departingFlights.length === 0 && flightType === 'Round-trip'" 
+                class="no-flights-in-section">
+            No departing flights found
+          </div>
+          <app-flight-footer></app-flight-footer>
+        </div>
+  
+        
+  
+          <div class="divider" *ngIf="returningFlights.length > 0 && flightType === 'Round-trip'">
+            <hr>
+          </div>
+  
+          
+          <div class="flight-section" *ngIf="returningFlights.length > 0 && flightType === 'Round-trip'">
+              <p class="flight-title">Select your returning flight</p>
+              <div id="arrival-section">
+                  <span class="city">{{ arrivalCityName }} <span class="code">{{ departingFlights[0]!.arrival_airport!.IATA_code }}</span></span>
+                  <img src="https://cdn.media.amplience.net/i/cebupacificair/flight_24px?fmt=auto&maxW=1920&maxH=1920&w=32" alt="flight-logo">
+                  <span class="city">{{ departureCityName }} <span class="code">{{ departingFlights[0]!.departure_airport!.IATA_code }}</span></span>
+              </div>
+            <div *ngFor="let flight of (selectedReturningFlight ? [selectedReturningFlight] : returningFlights)" 
+              class="flight-card"
+              (click)="onReturningFlightSelect(flight)"
+              [class.selected]="selectedReturningFlight === flight">
+              <div class="depart-arrival-details">
+                <div class="departure">
+                  <p>{{ flight.departure_time | date: 'h:mm a' }}</p>
+                  <div class="departure-text">
+                    <img src="https://www.cebupacificair.com/assets/images/icon-flight_takeoff.png" 
+                        alt="depart-logo">
+                    <p>Depart - {{ flight.departure_airport.IATA_code }}</p>
+                  </div>
+                </div>
+  
+                <div class="icon-divider">
+                  <img src="https://cdn.media.amplience.net/i/cebupacificair/flight-icon-cebupacific?fmt=auto&maxW=1920&maxH=1920" 
+                      alt="flight-icon">
+                </div>
+  
+                <div class="arrival">
+                  <p>{{ flight.arrival_time | date: 'h:mm a' }}</p>
+                  <div class="arrival-text">
+                    <img src="https://www.cebupacificair.com/assets/images/icon-flight_landing.png" 
+                        alt="arrive-logo">
+                    <p>Arrive - {{ flight.arrival_airport.IATA_code }}</p>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="time-duration">
+                <p>{{ formatDuration(flight.duration) }}</p>
+              </div>
+  
+              <div class="flight-number">
+                <p>{{ flight.flight_number }}</p>
+              </div>
+  
+              <div class="price">
+                <p>PHP {{ flight.price | number:'1.2-2' }}</p>
+              </div>
+            </div>
+  
+            <div *ngIf="returningFlights.length === 0 && flightType !== 'Round-trip'" 
+                  class="no-flights-in-section">
+              No returning flights found
+            </div>
+
+            <app-flight-footer></app-flight-footer>
+          </div>
+
+          <app-flight-bundles></app-flight-bundles>
+  
+          <div class="buttons-container">
+            <button class="back-button" type="button">
+              <a href="/search-flight">Back</a>
+            </button>
+            <app-search-flight-button 
+              [text]="searchButtonText" 
+              [selected]="isButtonEnabled"
+              (searchClicked)="navigateToGuestDetails()">
+            </app-search-flight-button>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

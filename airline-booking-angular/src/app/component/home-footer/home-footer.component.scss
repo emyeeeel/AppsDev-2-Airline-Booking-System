@@ -1,0 +1,164 @@
+footer {
+    height: 670px;
+  
+    a {
+        text-decoration: none;
+        color: #006fc1;
+    }
+  
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+  
+    .top-part {
+        height: 593px;
+        display: flex;
+        justify-content: center;
+  
+        .left-part {
+            width: 716px;
+            border-right: 1px solid #e2e2e2;
+            display: flex;
+            gap: 10px;
+  
+            .left-one .col-one {
+                display: flex;
+                gap: 10px;
+  
+                .row-one,
+                .row-two {
+                    width: 97px;
+                }
+            }
+  
+            .left-four .col-two {
+                margin-top: 35px;
+  
+                div {
+                    height: 24px;
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    
+                    img {
+                        &[alt="Facebook"] { width: 5.83px; height: 14px; }
+                        &[alt="Instagram"] { width: 13px; height: 12px; }
+                        &[alt="Youtube"] { width: 16.5px; height: 12px; }
+                        &[alt="Twitter"] { width: 15px; height: 12px; }
+                        object-fit: contain;
+                    }
+                }
+            }
+        }
+  
+        .right-part {
+            width: 265px;
+            margin-left: 64px;
+  
+            .app-section {
+                margin-bottom: 35px;
+                
+                .pacific-apps {
+                    display: flex;
+                    gap: 10px;
+                    
+                    img {
+                        width: 82px;
+                        height: 28px;
+                    }
+                }
+            }
+  
+            .payment-partners {
+                margin-bottom: 35px;
+                
+                .payment-gateways {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr); 
+                    gap: 12px;
+                    
+                    img {
+                        width: 70px;
+                    }
+                }
+            }
+            
+            .memberships div {
+                display: flex;
+                gap: 20px;
+            }
+        }
+    }
+  
+    .bottom-part {
+        height: 77px;
+        background: linear-gradient(179.65deg, #fbe700 -27.92%, #ffcd00 102.49%);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        .terms{
+            width: 704px;
+
+            ul{
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                letter-spacing: .015em;
+
+                li a{
+                    font-weight: 600;
+                    font-size: 13px;
+                    line-height: 150%;
+                    color: #006fc1;
+                }
+            }
+        }
+
+        .copyright{
+            width: 352px;
+
+            p{
+                color: #006fc1;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 150%;
+            }
+        }
+    }
+}
+
+%base-font {
+    font: 400 14px/180% sans-serif;
+    color: #006fc1;
+    display: inline-block;
+    letter-spacing: .015em;
+}
+
+%header-font {
+    display: block;
+    margin-bottom: 16px;
+    font: 700 11px/150% sans-serif;
+    color: #212529;
+}
+
+span, label {
+    @extend %header-font;
+}
+
+.nav-link-list {
+    @extend %base-font;
+    
+    li {
+        margin: 0 0 8px;
+        transition: color 0.3s ease;
+    }
+}
+
+.label-bold {
+    @extend %header-font;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,108 @@
+// booking-progress.component.scss
+$color-primary: #006fc1;
+$color-background: #f9e221;
+$color-text: #0060A7;
+$shadow-card: 0 2px 8px rgba(0,0,0,0.1);
+$breakpoint-mobile: 768px;
+
+.booking-progress {
+  padding: 25px;
+  background: $color-background;
+  height: 120px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 18px;
+      height: 3px;
+      z-index: 0;
+    }
+
+    &::before {
+      left: 20%;
+      right: 20%;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.4) 0 2px,
+        transparent 4px 8px
+      );
+    }
+
+    &::after {
+      left: 20%;
+      width: calc(60% * var(--progress-percent));
+      background: repeating-linear-gradient(
+        90deg,
+        $color-primary 0 2px,
+        transparent 4px 8px
+      );
+      transition: width 0.3s ease;
+      z-index: 1;
+    }
+
+    li {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      max-width: 150px;
+      font: 400 15px/1.3 sans-serif;
+      color: $color-text;
+      text-align: center;
+
+      &:first-child {
+        font-weight: 600;
+      }
+
+      &.active {
+        font-weight: 600;
+      }
+
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        box-shadow: $shadow-card;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 15px;
+    height: auto;
+
+    ul {
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      li {
+        flex: 0 0 33%;
+        font-size: 12px;
+        
+        &.active {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

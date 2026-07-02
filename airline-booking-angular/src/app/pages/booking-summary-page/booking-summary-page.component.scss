@@ -1,0 +1,557 @@
+// Variables
+$color-primary: #006fc1;
+$color-text: #333;
+$color-muted: #666;
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+$breakpoint-mobile: 768px;
+
+app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.booking-wrapper {
+  margin-top: 107px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-section,
+.terms-confirmation,
+.buttons-section,
+.booking-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-section {
+  margin-top: 15px;
+  margin-bottom: 25px;
+
+  .title-text {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h2 {
+      font-weight: bolder;
+      font-size: 30px;
+    }
+
+    p {
+      color: #575757;
+      font-weight: 400;
+      font-size: 15px;
+    }
+  }
+}
+
+.buttons-section {
+  margin-bottom: 50px;
+
+  .buttons-container {
+    width: 700px;
+  }
+}
+
+.booking-summary.round-trip {
+  margin-bottom: 20px;
+
+  .booking-contents {
+    width: 700px;
+    background: #ffffff;
+    box-shadow: 0 4px 23px #0000001a;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+
+    .departing,
+    .returning {
+      display: flex;
+      flex-direction: column;
+
+      .departing-flight,
+      .departing-passenger,
+      .departing-subtotal,
+      .returning-flight,
+      .returning-passenger,
+      .returning-subtotal {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .departing-passenger,
+      .returning-passenger {
+        padding: 15px 45px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .flight-subtotal {
+          font-weight: 700;
+          color: #039DE4;
+          font-size: 13px;
+        }
+
+        p {
+          font-weight: 700;
+        }
+      }
+
+      .departing-flight,
+      .returning-flight {
+        padding: 20px 45px 10px;
+
+        .span-contents {
+          display: flex;
+          justify-content: space-between;
+
+          .route {
+            color: #039DE4;
+            font-weight: 700;
+            font-size: 20px;
+          }
+
+          .show-details {
+            color: #039DE4;
+            font-weight: 700;
+            font-size: 15px;
+          }
+        }
+
+        p {
+          padding: 5px 0;
+          color: #666;
+          font-weight: 400;
+          font-size: 13px;
+        }
+      }
+
+      .departing-subtotal,
+      .returning-subtotal {
+        background-color: #ccc;
+        display: flex;
+        justify-content: space-between;
+        height: 50px;
+
+        span {
+          padding: 0 40px;
+        }
+
+        .subtotal {
+          font-weight: 700;
+        }
+      }
+    }
+
+    .departing {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .all-flights,
+    .total-cost {
+      padding: 0 45px;
+    }
+
+    .all-flights {
+      min-height: 155px;
+      overflow: auto;
+      align-content: center;
+
+      .all-header {
+        h2 {
+          color: #039DE4;
+        }
+
+        p {
+          font-size: 13px;
+          color: #575757;
+          padding: 3px 0;
+        }
+      }
+
+      .travel-insurance,
+      .taxes {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        h5,
+        p {
+          font-size: 13px;
+          letter-spacing: .03em;
+        }
+
+        p {
+          font-weight: 700;
+          color: #015FA7;
+        }
+      }
+    }
+
+    .total-cost {
+      width: 100%;
+      height: 50px;
+      background-color: #fff082;
+      flex-shrink: 0;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-weight: 700;
+
+      span {
+        padding: 15px 0;
+        color: #015FA7;
+        letter-spacing: .015em;
+      }
+    }
+  }
+}
+
+
+.terms-confirmation {
+  margin: 25px 0;
+
+  .terms-contents {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0 25px;
+    width: 700px;
+    height: 70px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 23px #0000001a;
+    transition: transform 0.2s ease;
+    font-size: 13px;
+    letter-spacing: .015em;
+
+    input[type="checkbox"] {
+      flex-shrink: 0;
+      margin: 0;
+    }
+
+    .terms-text {
+      line-height: 1.4;
+      text-align: center;
+
+      a {
+        color: #006fc1;
+        font-weight: 700;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.booking-progress {
+  padding: 25px;
+  background: #F9E221;
+  height: 120px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 18px;
+      left: 20%;
+      right: 20%;
+      height: 3px;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.4) 0px 2px,
+        transparent 4px 8px
+      );
+      z-index: 0;
+      border-radius: 2px;
+      box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      max-width: 150px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #0060A7;
+      text-align: center;
+      line-height: 1.3;
+
+      img {
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border-radius: 50%;
+        box-shadow: $shadow-card;
+      }
+
+      &:first-child {
+        font-weight: 600;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 15px;
+
+    ul {
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+
+      &::before {
+        display: none;
+      }
+
+      li {
+        flex: 0 0 33%;
+        font-size: 12px;
+
+        img {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+
+  button {
+    width: 258px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .back-button {
+    background: white;
+    border: 1px solid $color-primary;
+
+    a {
+      color: $color-primary;
+    }
+
+    &:hover {
+      background: #f5faff;
+    }
+  }
+
+  .continue-button {
+    background: linear-gradient(168.99deg, rgb(0, 164, 229) 17.86%, rgb(0, 111, 193) 87.93%);
+
+    &[disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+      background: linear-gradient(168.99deg, rgba(0, 164, 229, 0.7) 17.86%, rgba(0, 111, 193, 0.7) 87.93%);
+
+      a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+    }
+
+    &:not([disabled]):hover {
+      background: linear-gradient(168.99deg, rgb(0, 174, 239) 17.86%, rgb(0, 121, 203) 87.93%);
+    }
+
+    a {
+      color: white;
+    }
+  }
+}
+
+.booking-summary.one-way {
+  margin-bottom: 20px;
+
+  .booking-contents {
+    width: 700px;
+    background: #ffffff;
+    box-shadow: 0 4px 23px #0000001a;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+
+    .departing {
+      display: flex;
+      flex-direction: column;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+
+      .departing-flight,
+      .departing-passenger,
+      .departing-subtotal {
+        flex: 1;
+        padding: 10px;
+      }
+
+      .departing-passenger{
+        padding: 15px 45px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .flight-subtotal{
+          font-weight: 700;
+          color: #039DE4;
+          font-size: 13px;
+        }
+
+        p{
+          font-weight: 700;
+        }
+      }
+      
+      .departing-flight {
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+
+        .span-contents {
+          display: flex;
+          justify-content: space-between;
+
+          .route {
+            color: #039DE4;
+            font-weight: 700;
+            font-size: 20px;
+          }
+
+          .show-details{
+            color: #039DE4;
+            font-weight: 700;
+            font-size: 15px;
+          }
+        }
+
+        p{
+          padding: 5px 0;
+          color: #666;
+            font-weight: 400;
+            font-size: 13px;
+        }
+      }
+
+      .departing-subtotal {
+        background-color: #ccc;
+        display: flex;
+        justify-content: space-between;
+        height: 50px;
+
+        span {
+          padding: 0 40px;
+        }
+
+        .subtotal {
+          font-weight: 700;
+        }
+      }
+    }
+
+    .all-flights,
+    .total-cost {
+      padding: 0 45px;
+    }
+
+    .all-flights {
+      min-height: 155px;
+      overflow: auto;
+      align-content: center;
+
+      .all-header {
+        h2 {
+          color: #039DE4;
+        }
+
+        p {
+          font-size: 13px;
+          color: #575757;
+          padding: 3px 0;
+        }
+      }
+
+      .travel-insurance,
+      .taxes {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        h5,
+        p {
+          font-size: 13px;
+          letter-spacing: .03em;
+        }
+
+        p {
+          font-weight: 700;
+          color: #015FA7;
+        }
+      }
+    }
+
+    .total-cost {
+      width: 100%;
+      height: 50px;
+      background-color: #fff082;
+      flex-shrink: 0;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-weight: 700;
+
+      span {
+        padding: 15px 0;
+        color: #015FA7;
+        letter-spacing: .015em;
+      }
+    }
+  }
+}
+

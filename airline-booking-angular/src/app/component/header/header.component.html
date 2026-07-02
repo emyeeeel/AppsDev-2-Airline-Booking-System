@@ -1,0 +1,50 @@
+<header [class.force-hover]="isHoveredByDefault">
+  <div class="header-top">
+      <div class="advisory">
+          <i class="material-icons warning-icon">error_outline</i>
+          <strong>Travel Advisory:</strong>
+          {{ currentAdvisory.text }}
+          <i class="material-icons chevron" (click)="changeAdvisory(-1)">chevron_left</i>
+          <i class="material-icons chevron" (click)="changeAdvisory(1)">chevron_right</i>
+        </div>
+  
+        <a class="viewall" href="#">View all</a>
+  
+        <div class="currency-selector">
+          <i class="material-icons">attach_money</i>
+          <span>PHP</span>
+        </div>
+  
+        <div class="language-selector">
+          <i class="material-icons">language</i>
+          <span>English</span>
+        </div>
+  
+        <strong class="help">Help</strong>
+  </div>
+
+  <div class="header-bottom">
+    <div class="logo-header-container" (click)="navigateToHome()"></div>
+    <a href="#" (mouseenter)="showPopup('book')" (mouseleave)="hidePopup()">Book</a>
+    <a href="#" (mouseenter)="showPopup('manage')" (mouseleave)="hidePopup()">Manage</a>
+    <a href="#" (mouseenter)="showPopup('travel-info')" (mouseleave)="hidePopup()">Travel Info</a>
+    <a href="#" (mouseenter)="showPopup('explore')" (mouseleave)="hidePopup()">Explore</a>
+    <a href="#" (mouseenter)="showPopup('about')" (mouseleave)="hidePopup()">About</a>
+    <div class="login-group" *ngIf="!authService.isAuthenticated()">
+        <i class="material-icons">account_circle</i>
+        <a href="#" (mouseenter)="showPopup('login')" (mouseleave)="hidePopup()">Login</a>
+    </div>
+    <div class="login-group" *ngIf="authService.isAuthenticated()">
+      <div class="user-initials">{{ userInitials }}</div>
+      <a href="#" (mouseenter)="showPopup('login')" (mouseleave)="hidePopup()">My Account</a>
+  </div>
+    <i class="material-icons search-icon">search</i>
+</div>
+
+<div class="popup-info-container" 
+    [class.visible]="isPopupVisible"
+    (mouseenter)="showPopup(currentMenu)"
+    (mouseleave)="hidePopup()">
+  <app-popup-info [currentMenu]="currentMenu"></app-popup-info>
+</div>
+</header>

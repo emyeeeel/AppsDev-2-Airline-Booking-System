@@ -1,0 +1,28 @@
+<div class="destination-container">
+    <h6 class="title">Country</h6>
+    
+    <div *ngIf="isLoading" class="loading">Loading countries...</div>
+  
+    <div *ngIf="!isLoading" class="scrollable-list">
+      <ul class="country-list">
+        <li *ngFor="let country of filteredCountries" class="country-item">
+          <a class="country-anchor" 
+             (click)="toggleCountry(country.id)"
+             [class.selected]="expandedCountries.has(country.id)">
+            {{ country.name }}
+          </a>
+          
+          <ul *ngIf="expandedCountries.has(country.id)" class="city-list">
+            <li *ngFor="let city of country.cities" class="city-item">
+              <a href="#" 
+                class="city-link"
+                (click)="selectCity(city); $event.preventDefault()"
+                [attr.data-airports]="getAirportCodes(city)">
+                {{ city.name }}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+</div>

@@ -1,0 +1,143 @@
+<app-header [isHoveredByDefault]="true"></app-header>
+<app-loader *ngIf="loading"></app-loader>
+
+<div class="booking-wrapper">
+  <app-booking-progress [selectedIndex]="currentStepIndex"></app-booking-progress>
+      
+  <div class="title-section">
+    <div class="title-text">
+      <h2>Booking Summary</h2>
+      <p>Review your booking before proceeding to payment</p>
+    </div>
+  </div>
+
+  <!-- Conditionally display the Round-trip section -->
+  <div class="booking-summary round-trip" *ngIf="flightType === 'Round-trip'">
+    <div class="booking-contents">
+      <div class="departing">
+        <div class="departing-flight">
+          <div class="span-contents">
+            <span class="route">{{ route.snapshot.queryParams['departure'] }} - {{ route.snapshot.queryParams['arrival'] }}</span>
+            <span class="show-details">Show Flight Details</span>
+          </div>
+          <p>{{ formatFlightDate(route.snapshot.queryParams['departDate']) }}</p>
+        </div>
+        <div class="departing-passenger">
+          <div class="passengers-list" *ngFor="let passenger of passengers">
+            <p>{{ passenger.name.firstName }} {{ passenger.name.lastName }}</p>
+          </div>
+          <div class="flight-subtotal">
+            <span>PHP {{ (route.snapshot.queryParams['departPrice'] * totalPassengers) | number:'1.2-2' }}</span>
+          </div>
+        </div>
+        <div class="departing-subtotal">
+          <span class="subtotal">{{ route.snapshot.queryParams['departure'] }} - {{ route.snapshot.queryParams['arrival'] }} Subtotal</span>
+          <span>PHP {{ (route.snapshot.queryParams['departPrice'] * totalPassengers) | number:'1.2-2' }}</span>
+        </div>
+      </div>
+      <div class="returning">
+        <div class="returning-flight">
+          <div class="span-contents">
+            <span class="route">{{ route.snapshot.queryParams['arrival'] }} - {{ route.snapshot.queryParams['departure'] }}</span>
+            <span class="show-details">Show Flight Details </span>
+          </div>
+          <p>{{ formatFlightDate(route.snapshot.queryParams['returnDate']) }}</p>
+        </div>
+        <div class="returning-passenger">
+          <div class="passengers-list" *ngFor="let passenger of passengers">
+            <p>{{ passenger.name.firstName }} {{ passenger.name.lastName }}</p>
+          </div>
+          <div class="flight-subtotal">
+            <span>PHP {{ (route.snapshot.queryParams['returnPrice'] * totalPassengers) | number:'1.2-2' }}</span>
+          </div>
+        </div>
+        <div class="returning-subtotal">
+          <span class="subtotal">{{ route.snapshot.queryParams['arrival'] }} - {{ route.snapshot.queryParams['departure'] }} Subtotal</span>
+          <span>PHP {{ (route.snapshot.queryParams['returnPrice'] * totalPassengers) | number:'1.2-2' }}</span>
+        </div>
+      </div>
+      <div class="all-flights">
+        <div class="all-header">
+          <h2>All Flights</h2>
+          <p>The following are applied across all flights</p>
+        </div>
+        <span class="travel-insurance">
+          <h5>Travel Insurance</h5>
+          <p>PHP {{ travel_insurance | number:'1.2-2' }}</p>
+        </span>
+        <span class="taxes">
+          <h5>Taxes and Fees</h5>
+          <p>Show Details </p>
+        </span>
+      </div>
+      <div class="total-cost">
+        <span>Total</span>
+        <span>PHP {{ calculateTotalCost() | number:'1.2-2' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conditionally display the One-way section -->
+  <div class="booking-summary one-way" *ngIf="flightType === 'One-way'">
+    <div class="booking-contents">
+      <div class="departing">
+        <div class="departing-flight">
+          <div class="span-contents">
+            <span class="route">{{ route.snapshot.queryParams['departure'] }} - {{ route.snapshot.queryParams['arrival'] }}</span>
+            <span class="show-details">Show Flight Details </span>
+          </div>
+          <p>{{ formatFlightDate(route.snapshot.queryParams['departDate']) }}</p>
+        </div>
+        <div class="departing-passenger">
+          <div class="passengers-list" *ngFor="let passenger of passengers">
+            <p>{{ passenger.name.firstName }} {{ passenger.name.lastName }}</p>
+          </div>
+          <div class="flight-subtotal">
+            <span>PHP {{ (route.snapshot.queryParams['departPrice'] * totalPassengers) | number:'1.2-2' }}</span>
+          </div>
+        </div>
+        <div class="departing-subtotal">
+          <span class="subtotal">{{ route.snapshot.queryParams['departure'] }} - {{ route.snapshot.queryParams['arrival'] }} Subtotal</span>
+          <span>PHP {{ (route.snapshot.queryParams['departPrice'] * totalPassengers) | number:'1.2-2' }}</span>
+        </div>
+      </div>
+      <div class="all-flights">
+        <div class="all-header">
+          <h2>All Flights</h2>
+          <p>The following are applied across all flights</p>
+        </div>
+        <span class="travel-insurance">
+          <h5>Travel Insurance</h5>
+          <p>PHP {{ travel_insurance | number:'1.2-2' }}</p>
+        </span>
+        <span class="taxes">
+          <h5>Taxes and Fees</h5>
+          <p>Show Details </p>
+        </span>
+      </div>
+      <div class="total-cost">
+        <span>Total</span>
+        <span>PHP {{ calculateTotalCost() | number:'1.2-2' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="terms-confirmation">
+    <div class="terms-contents">
+      <input type="checkbox" required>
+      <span class="terms-text">
+        By clicking 'Continue' I confirm that I have read, understood, and accept the 
+        <a href="#" class="conditions-link">Conditions of Carriage</a>
+      </span>
+    </div>
+  </div>
+
+  <div class="buttons-section">
+    <div class="buttons-container">
+      <button class="back-button" type="button"  (click)="navigateBack()">
+        <a>Back</a>
+      </button>
+      <app-search-flight-button [text]="searchButtonText" (searchClicked)="navigateToConfirmation()"></app-search-flight-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,412 @@
+// Variables
+$color-primary: #006fc1;
+$color-text: #333;
+$color-muted: #666;
+$shadow-card: 0 2px 8px rgba(0,0,0,0.1);
+$breakpoint-mobile: 768px;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  position: relative;
+  background: #f8f9fa;
+}
+
+.flights-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 107px);
+  padding: 107px 0 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+app-flight-details{
+  display: flex;
+  justify-content: center;
+}
+
+.flights-container {
+  width: 100%;
+  background: #fff;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+
+  .list-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .flights-list{
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      max-width: 1056px;
+      flex-direction: column;
+    }
+  }
+}
+
+.jump-to{
+  padding-left: 25px;
+  margin-top: 25px;
+  span{
+    font-size: 11px;
+    color: #575757;
+    font-weight: 700;
+  }
+}
+
+.flight-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 15px 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: $shadow-card;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &.selected {
+    position: relative; 
+    border: 2px solid #2196F3;
+
+    &::after{
+      content: "";
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      top: -10px;
+      right: -15px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-image: url(https://www.cebupacificair.com/assets/images/icon-check.png);
+    }
+  }
+
+  .depart-arrival-details {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+
+    .departure, .arrival {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 120px;
+
+      p {
+        font-weight: 600;
+        font-size: 15px;
+        color: $color-text;
+      }
+    }
+
+    .icon-divider {
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+      img {
+        width: 18px;
+        height: 18px;
+        opacity: 0.5;
+      }
+    }
+
+    .departure-text, .arrival-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        width: 9px;
+        height: 9px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 11px;
+        color: $color-muted;
+      }
+    }
+  }
+
+  .time-duration,
+  .flight-number {
+    font-size: 0.9em;
+    color: $color-muted;
+    margin: 0 20px;
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .price {
+    font-weight: 600;
+    font-size: 15px;
+    color: $color-primary;
+    min-width: 100px;
+    text-align: right;
+  }
+}
+
+.flight-section{
+  h3{
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 25px;
+
+    &:first-child {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .flights-wrapper {
+    padding: 107px 10px 10px;
+  }
+
+  .flights-container {
+    .flight-details {
+      padding: 15px;
+      grid-template-columns: 1fr;
+
+      .route-info {
+        gap: 6px;
+        
+        .city-name {
+          font-size: 16px;
+        }
+        
+        .iata-code {
+          font-size: 14px;
+        }
+        
+        .to-text {
+          font-size: 14px;
+          margin: 0 6px;
+        }
+      }
+    }
+
+    .booking-progress {
+      padding: 15px;
+      height: auto;
+    }
+  }
+
+  .flight-card {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    margin: 15px;
+
+    .depart-arrival-details {
+      flex-basis: 100%;
+    }
+
+    .price {
+      text-align: left;
+    }
+
+    .icon-divider,
+    .time-duration,
+    .flight-number {
+      display: none;
+    }
+  }
+}
+
+.no-flights {
+  text-align: center;
+  padding: 40px;
+  color: $color-muted;
+  font-size: 1.2em;
+  background: #fff;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: $shadow-card;
+}
+
+.flight-section{
+  .flight-title{
+    padding-left: 25px;
+    font-size: 15px;
+    letter-spacing: .005em;
+    color: #575757;
+    margin-bottom: 8px;
+    margin-top: 25px;
+  }
+
+  #departure-section, #arrival-section {
+    padding-left: 25px;
+    display: flex;
+    align-items: center; // Vertical centering
+    gap: 8px; // Space between elements
+    margin: 15px 0;
+  
+    span {
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  
+    img {
+      // Remove existing margins
+      margin: 0 !important; 
+      width: 32px;
+      height: 32px;
+      align-self: center; // Ensure image stays centered
+    }
+  }
+  
+  .city {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  
+  .code {
+    font-weight: 400;
+    margin-left: 4px;
+    font-size: 0.8em;
+  }
+}
+
+.list-footer {
+  padding-left: 25px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 50px;
+
+  // Base paragraph styling
+  p {
+    font-size: 13px;
+    color: #575757;
+    margin: 0;
+    
+    // Add spacing between paragraphs
+    & + p {
+      margin-top: 10px;
+    }
+  }
+
+  // Airline operator section
+  .operated-by {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  // Individual airline content
+  .content {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    vertical-align: middle;
+  }
+
+  // Airplane logo styling
+  .airplane-logo {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  // "Here" link styling
+  .here-link {
+    color: #006fc1;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  margin: 30px 25px;
+  max-width: 1056px;
+
+  button {
+    width: 258px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .back-button {
+    background: white;
+    border: 1px solid #006fc1;
+    
+    a {
+      color: #006fc1;
+    }
+
+    &:hover {
+      background: #f5faff;
+    }
+  }
+
+  .continue-button {
+    margin-right: 25px;
+    background: linear-gradient(168.99deg, rgb(0, 164, 229) 17.86%, rgb(0, 111, 193) 87.93%);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    
+    &[disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+      background: linear-gradient(168.99deg, rgba(0, 164, 229, 0.7) 17.86%, rgba(0, 111, 193, 0.7) 87.93%);
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    &:not([disabled]):hover {
+      background: linear-gradient(168.99deg, rgb(0, 174, 239) 17.86%, rgb(0, 121, 203) 87.93%);
+    }
+  }
+}
+
+.divider{
+  margin-top: 50px;
+  margin-bottom: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  hr{
+    width: 95%;
+    border-top: 1px solid #E2E2E2;
+    border-bottom: 0;
+  }
+}

@@ -1,0 +1,71 @@
+<div class="popup-wrapper">
+    <div class="header-title">
+        <h2>Search Flight</h2>
+        <i class="material-icons" (click)="onClose()">close</i>
+    </div>
+    <div class="search-container">
+        <div class="main-container">
+            <div class="main-header">
+                <h1>Hi, where would you like to go?</h1>
+            </div>
+            <div class="booking-titles">
+                <div class="flight-title">
+                    <ul class="ng-tns-c12-390">
+                        <li class="ng-tns-c12-390">
+                            <a class="flight ng-tns-c12-390">
+                                <img class="ng-tns-c12-390" src="https://cdn.media.amplience.net/i/cebupacificair/Flight-Icon?fmt=auto&amp;maxW=1920&amp;maxH=1920"> Flight 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <select class="flight-type-dropdown" [(ngModel)]="selectedFlightType">
+                  <option value="Round-trip">Round-trip</option>
+                  <option value="One-way">One-way</option>
+                  <option value="Multi-city">Multi-city</option>
+                </select>
+              </div>
+            <div class="flight-info">
+                <div class="destination-section">
+                    <app-destination-picker></app-destination-picker>
+                </div>
+                <div class="date-section">
+                    <app-date-picker [flightType]="selectedFlightType"></app-date-picker>
+                </div>
+            </div>
+    
+            <div class="flight-passengers">
+                <div class="left-side">
+                    <div class="adult-list">
+                        <span class="title">Adults</span>
+                        <input type="number" min="0" max="20" [(ngModel)]="adultCount" tabindex="103">
+                        <label>12+ years</label>
+                    </div>
+                    <div class="children-list">
+                        <span class="title">Children</span>
+                        <input type="number" min="0" max="20" [(ngModel)]="childCount" tabindex="103">
+                        <label>2 - 11 years</label>
+                    </div>
+                    <div class="infant-list">
+                        <span class="title">Infant</span>
+                        <input type="number" min="0" max="20" [(ngModel)]="infantCount" tabindex="103">
+                        <label>under 2 years</label>
+                    </div>
+                </div>
+                
+                <div class="right-side">
+                    <div class="promo-code">
+                        <span class="title">Enter promo code</span>
+                        <input type="text" placeholder="Promo Code (Optional)">
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="isPassengerExceeded" class="error-message">
+                Error: Total passengers cannot exceed 20. Please adjust your selections.
+            </div>
+    
+        <div class="search-button">
+            <app-search-flight-button (searchClicked)="onSearchClick()" [text]="buttonText"></app-search-flight-button>
+        </div>
+    </div>
+</div>

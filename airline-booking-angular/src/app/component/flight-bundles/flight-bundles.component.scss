@@ -1,0 +1,382 @@
+.bundle-container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 50px;
+
+    .main-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .bundle-header{
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .header-title, .bundle-contents {
+        max-width: 1056px;
+        margin: 0 25px;
+    }
+
+    .header-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 40px 16px 0;
+        
+        &-text {
+            color: rgb(51, 51, 51);
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.075px;
+            background-color: rgb(247, 247, 247);
+            display: inline-block;
+        }
+    }
+
+    .bundle-contents {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 8px 16px #00000014;
+        border-radius: 12px;
+        margin-bottom: 20px;
+
+        .tip, .discount-note {
+            font-size: 11px;
+            padding: 15px;
+            color: rgb(87, 87, 87);
+        }
+
+        .bundle-selections {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 14px;
+            margin-bottom: 8px;
+
+            .promo {
+                background: #ffffff;
+                border: 1px solid #e2e2e2;
+                box-sizing: border-box;
+                max-width: 304px;
+                padding: 24px 0 0;
+                position: relative;
+                flex-basis: calc(33.33% - 10px);
+                display: flex;
+                flex-direction: column;
+                align-items: baseline;
+                min-height: 500px;
+
+                .header {
+                    margin: 0 24px;
+
+                    .title {
+                        font-size: 18px;
+                        line-height: 150%;
+                        font-weight: 600;
+                        display: flex;
+                        align-items: center;
+                        padding: 0;
+
+                        &-text {
+                            padding-right: 8px;
+                        }
+                    }
+
+                    .subtitle {
+                        font-size: 11px;
+                        color: rgb(87, 87, 87);
+                        line-height: 21px;
+                        letter-spacing: 0.004em;
+                    }
+                }
+
+                .promo-content {
+                    padding: 0;
+                    margin: 0;
+                    text-align: left;
+                    max-width: 247px;
+
+                    .note {
+                        margin: 0 24px;
+                        font-size: 15px;
+                        line-height: 21px;
+                        letter-spacing: 0.004em;
+                        color: rgb(87, 87, 87);
+                        display: block;
+                        padding-bottom: 3px;
+                    }
+
+                    .bundle-features-list {
+                        margin: 16px 24px 0;
+                        list-style: none;
+                        padding: 0;
+                        color: rgb(68, 68, 68);
+
+                        .feature-item {
+                            margin-bottom: 16px;
+                            font-size: 13px;
+                            line-height: 19.5px;
+                            letter-spacing: 0.0025em;
+                            color: rgb(190, 190, 190);
+                            display: flex;
+                            position: relative;
+
+                            img {
+                                width: 15px;
+                                height: 15px;
+                                margin-right: 5px;
+                                vertical-align: middle;
+                            }
+
+                            .feature-details {
+                                margin-top: -3px;
+
+                                .feature-title {
+                                    font-size: 13px;
+                                    color: rgb(68, 68, 68);
+                                }
+
+                                .feature-description {
+                                    font-size: 11px;
+                                    color: rgb(68, 68, 68);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .bottom {
+                    position: absolute;
+                    bottom: 1%;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 24px;
+                    width: 84% !important;
+
+                    a {
+                        @extend .rules-link;
+                    }
+
+                    button {
+                        margin: 8px 0 14px;
+                        padding: 5px;
+                        line-height: 114%;
+                        font-size: 15px;
+                        letter-spacing: 0.004em;
+                        height: 48px;
+                        border: 1px solid #006FC1;
+                        color: #006fc1;
+                        background: transparent;
+                        border-radius: 10px;
+                        font-weight: 700;
+                        width: calc(100% - 5px);
+                    }
+                }
+            }
+
+            .go-basic {
+                color: #444;
+                border-color: #e2e2e2;
+                border-top: 10px solid #e2e2e2;
+                border-radius: 8px;
+
+                &.selected {
+                    border-left: 2px solid #52caf5;
+                    border-right: 2px solid #52caf5;
+                    border-bottom: 2px solid #52caf5;
+                    border-top: 10px solid #52caf5;
+                    position: relative;
+                    z-index: 2;
+                  }
+
+                  &.selected:after {
+                    z-index: 3;
+                    content: "";
+                    position: absolute;
+                    width: 36px;
+                    height: 36px;
+                    top: -20px;
+                    right: -15px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-image: url(https://www.cebupacificair.com/assets/images/icon-check.png);
+                }
+            }
+
+            .go-easy {
+                color: #00a4e5;
+                border-top: 10px solid #aadff2;
+                border-radius: 8px;
+
+                .bundle-features-list {
+                    color: #00a4e5;
+                }
+
+                &.selected {
+                    border-left: 2px solid #52caf5;
+                    border-right: 2px solid #52caf5;
+                    border-bottom: 2px solid #52caf5;
+                    border-top: 10px solid #52caf5;
+                    position: relative;
+                    z-index: 2;
+                  }
+
+                  &.selected:after {
+                    z-index: 3;
+                    content: "";
+                    position: absolute;
+                    width: 36px;
+                    height: 36px;
+                    top: -20px;
+                    right: -15px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-image: url(https://www.cebupacificair.com/assets/images/icon-check.png);
+                }
+            }
+
+            .go-flexi {
+                color: #0060a7;
+                border-top: 10px solid #0060a7;
+                border-radius: 8px;
+
+                &.selected {
+                    border-left: 2px solid #52caf5;
+                    border-right: 2px solid #52caf5;
+                    border-bottom: 2px solid #52caf5;
+                    border-top: 0;
+                    position: relative;
+                    z-index: 2;
+                  }
+
+                  
+
+                .bundle-features-list {
+                    color: #0060a7;
+                }
+
+
+                .smart-choice-tag {
+                    position: relative;
+                    width: 3043px;
+                    height: 29px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    bottom: 489.6px;
+                    left: -25px;
+                    z-index: 1;
+                    background: linear-gradient(173.61deg, #fbe700 -27.92%, #ffcd00 102.49%);
+                    border-radius: 8px 8px 0 0;
+                    padding: 4px 10px;
+                    gap: 4px;
+
+                    &.selected{
+                        border-left: 2px solid #52caf5;
+                        border-right: 2px solid #52caf5;
+                        border-bottom: 0;
+                        border-top: 2px solid #52caf5;
+                        position: relative;
+                        z-index: 3;
+                    }
+
+                    &.selected:after {
+                        z-index: 3;
+                        content: "";
+                        position: absolute;
+                        width: 36px;
+                        height: 36px;
+                        top: -20px;
+                        right: -15px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-image: url(https://www.cebupacificair.com/assets/images/icon-check.png);
+                    }
+
+                    .star-img {
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    .smart-choice-txt {
+                        color: #005687;
+                        font-weight: 680;
+                        font-size: 13px;
+                        line-height: 20.54px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.rules-link {
+    margin: 0 0 20px 20px;
+    float: left;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.004em;
+    color: #006fc1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 21px !important;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-image: url("https://www.cebupacificair.com/assets/images/icon-bundle.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-right: 5px;
+        margin-top: -1px;
+    }
+}
+
+.divider {
+    margin: 10px 0;
+    background: #6b6b6b;
+    border: 1.1px solid #6b6b6b;
+    width: 83%;
+}
+
+.go-basic-content,
+.go-easy-content,
+.go-flexi-content {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  max-width: 247px;
+}
+
+.go-basic-content ul,
+.go-easy-content ul,
+.go-flexi-content ul {
+  margin: 16px 0 0 0 !important; 
+  padding-left: 24px; 
+}
+
+.go-easy-content .note,
+.go-flexi-content .note {
+  margin: 0 0 3px 0 !important; 
+  display: block; 
+}
+
+.go-basic-content li,
+.go-easy-content li,
+.go-flexi-content li {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.go-flexi-content {
+    position: relative;
+  }

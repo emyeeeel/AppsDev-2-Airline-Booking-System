@@ -1,0 +1,36 @@
+<app-header [isHoveredByDefault]="true"></app-header>
+<app-loader *ngIf="loading"></app-loader>
+<div class="flights-wrapper">
+  <div class="flights-container">
+    <app-flight-details></app-flight-details>
+
+    <app-booking-progress [selectedIndex]="currentStepIndex"></app-booking-progress>
+    <app-guest-info></app-guest-info>
+    <app-contact-info></app-contact-info>
+
+    <div class="checkbox-section">
+      <div class="checkbox">
+        <input type="checkbox" required>
+            <p class="terms-text">
+              I confirm that I have read, understood, and agree to the updated Cebu Pacific
+              <a href="#" class="conditions-link">Privacy Policy</a>.
+              I consent to the collection, use, processing and sharing of my personal information in accordance therewith.
+            </p>
+      </div>
+    </div>
+
+    <div class="buttons-section">
+      <div class="buttons-container">
+        <button class="back-button" type="button">
+          <a href="/flights">Back</a>
+        </button>
+        <app-search-flight-button 
+          [text]="searchButtonText" 
+          (searchClicked)="navigateToAddOns()">
+        </app-search-flight-button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<app-footer></app-footer>

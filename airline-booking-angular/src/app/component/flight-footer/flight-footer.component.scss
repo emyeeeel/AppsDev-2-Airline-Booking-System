@@ -1,0 +1,53 @@
+.list-footer {
+    font-family: Arial, sans-serif;
+    padding: 0 25px;
+  
+    // Base paragraph styling
+    p {
+      font-size: 13px;
+      color: #575757;
+      margin: 0;
+      
+      // Add spacing between paragraphs
+      & + p {
+        margin-top: 10px;
+      }
+    }
+  
+    // Airline operator section
+    .operated-by {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+  
+    // Individual airline content
+    .content {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      vertical-align: middle;
+    }
+  
+    // Airplane logo styling
+    .airplane-logo {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+  
+    // "Here" link styling
+    .here-link {
+      color: #006fc1;
+      text-decoration: underline;
+      cursor: pointer;
+      font-weight: 500;
+      
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }

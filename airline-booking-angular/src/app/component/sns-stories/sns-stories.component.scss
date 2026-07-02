@@ -1,0 +1,76 @@
+@use 'sass:map';
+
+// Z-index Management
+$z-index: (
+  background: 0,
+  background-element: 1,
+  overlay: 2,
+  background-text: 3,
+  booking-container: 20,
+  content: 11,
+  controls: 12,
+  date-picker: 13,
+  dropdown: 20,
+  dropdown-menu: 1000,
+);
+
+// Stories Section
+.sns-stories {
+    height: 140px;
+    margin-top: 145px;
+    padding: 0 20px;
+    position: relative;
+    z-index: map.get($z-index, content);
+  
+    ul {
+      display: flex;
+      gap: 150px;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+  
+      li {
+        width: 87px;
+        height: 87px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        transition: transform 0.2s ease;
+  
+        img {
+          width: 100%;
+          height: 100%;
+          border: 3px solid white;
+          border-radius: 50%;
+          object-fit: cover;
+          box-sizing: border-box;
+          box-shadow: 0 0 0 3px #0074e4, inset 0 0 0 1px white;
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+  
+        p {
+          margin: 0;
+          font: 400 12px/1 'Helvetica Neue', Arial, sans-serif;
+          color: #006fc1;
+          white-space: nowrap;
+          text-align: center;
+        }
+  
+        &:hover {
+          transform: translateY(-3px);
+          
+          img {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px #0074e4, inset 0 0 0 1px white;
+          }
+        }
+      }
+  
+      @media (max-width: 768px) {
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+    }
+  }

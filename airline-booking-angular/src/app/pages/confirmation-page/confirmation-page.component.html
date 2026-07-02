@@ -1,0 +1,32 @@
+<app-header [isHoveredByDefault]="true"></app-header>
+
+<div class="booking-wrapper">
+  <app-booking-progress [selectedIndex]="currentStepIndex"></app-booking-progress>
+
+  <div class="confirmation-wrapper">
+    <div class="confirmation-info">
+      <div class="text-section">
+        <div class="col-1">
+          <div class="confirmation-icon-text">
+            <span class="material-icons icon">check_circle</span>
+            <span class="status-text">Confirmed</span>
+          </div>
+          <div class="instruction-text">
+            Please print and bring itinerary with one (1) valid ID and required travel documents when you check in at the airport.
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="label">BOOKED ON</div>
+          <div class="value">{{ currentDate }}</div>
+        </div>
+        <div class="col-3">
+          <div class="label">BOOKING REFERENCE NO.</div>
+          <div class="value">ABC123XYZ</div>
+        </div>
+      </div>
+      <div class="button-section">
+        <app-search-flight-button [text]="searchButtonText" (searchClicked)="navigateToMyBookings()"></app-search-flight-button>
+      </div>
+    </div>
+  </div>
+</div>

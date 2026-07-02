@@ -1,0 +1,196 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<app-header [isHoveredByDefault]="true"></app-header>
+
+<div class="content-wrapper">
+  <div *ngIf="loading" class="loading-container">
+    <p>Loading your bookings...</p>
+  </div>
+
+  <div *ngIf="!loading && bookings.length === 0" class="no-bookings-container">
+    <p>No bookings found.</p>
+  </div>
+
+  <div *ngIf="!loading && bookings.length > 0" class="bookings-container">
+    <h2>My Bookings</h2>
+    <ul class="booking-list">
+      <li *ngFor="let booking of bookings" class="booking-item">
+        <div class="booking-header">
+          <h3 (click)="toggleBookingDetails(booking.booking_reference)">
+            Booking Reference: {{ booking.booking_reference }}
+          </h3>
+        </div>
+
+        <!-- Show details only if the booking reference matches the selected one -->
+        <div *ngIf="selectedBookingReference === booking.booking_reference">
+          <div class="itinerary-wrapper">
+            <!-- Itinerary Header -->
+            <div class="itinerary-header">
+              <div class="logo-header-container"></div>
+              <P>ITINERARY RECEIPT</P>
+            </div>
+
+            <!-- Booking Details -->
+            <div class="booking-details-section">
+              <div class="booking-details-wrapper">
+                <div class="booking-details-title">
+                  Booking Details
+                </div>
+                <div class="booking-details-container">
+                  <div class="booking-details">
+                    <!-- Status -->
+                    <div class="booking-status">
+                      <strong>Status:</strong>
+                      <p>CONFIRMED</p>
+                    </div>
+
+                    <!-- Booking Date -->
+                    <div class="booking-date">
+                      <strong>Booking Date:</strong>
+                      <p>{{ booking.created_at | date:'medium' }}</p>
+                    </div>
+
+                    <!-- Reference Number -->
+                    <div class="booking-reference">
+                      <strong>Booking Reference:</strong>
+                      <p>{{ booking.booking_reference }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="booking-barcode"></div>
+            </div>
+
+            <!-- Flight Details -->
+            <div class="flight-details-wrapper">
+              <div class="flight-details-title">
+                Flight Details
+              </div>
+              <div class="flight-details-container">
+                <div class="flight-details">
+                  <!-- Row for labels -->
+                  <div class="details-row label-row">
+                    <div class="details-column"><strong>Flight No. / Airline</strong></div>
+                    <div class="details-column"><strong>Departure</strong></div>
+                    <div class="details-column"><strong>Arrival</strong></div>
+                  </div>
+
+                  <!-- Departing Flight -->
+                  <div class="details-row">
+                    <div class="details-column airline">
+                      <div class="airline-name">{{ (booking.departing_flight.airline || 'Loading...') + ' Air' }}</div>
+                      <div class="flight-number">
+                        <span class="material-symbols-outlined">travel</span>
+                        {{ booking.departing_flight.flight_number || 'Loading...' }}
+                      </div>
+                    </div>
+                    <div class="details-column departure">
+                      <div class="departure-details">
+                        <div class="departure-city">
+                          {{ (booking.departing_flight.departure_airport.city_name || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="departure-iata">
+                          {{ (booking.departing_flight.departure_airport.IATA_code || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="departure-time">
+                          {{ booking.departing_flight.departure_time | date:'medium' }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="details-column arrival">
+                      <div class="arrival-details">
+                        <div class="arrival-city">
+                          {{ (booking.departing_flight.arrival_airport.city_name || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="arrival-iata">
+                          {{ (booking.departing_flight.arrival_airport.IATA_code || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="arrival-time">
+                          {{ booking.departing_flight.arrival_time | date:'medium' }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Dotted Divider -->
+                  <hr *ngIf="booking.returning_flight" class="dotted-divider">
+
+                  <!-- Returning Flight -->
+                  <div *ngIf="booking.returning_flight" class="details-row">
+                    <div class="details-column airline">
+                      <div class="airline-name">{{ (booking.returning_flight.airline || 'Loading...') + ' Air' }}</div>
+                      <div class="flight-number">
+                        <span class="material-symbols-outlined">travel</span>
+                        {{ booking.returning_flight.flight_number || 'Loading...' }}
+                      </div>
+                    </div>
+                    <div class="details-column departure">
+                      <div class="departure-details">
+                        <div class="departure-city">
+                          {{ (booking.returning_flight.departure_airport.city_name || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="departure-iata">
+                          {{ (booking.returning_flight.departure_airport.IATA_code || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="departure-time">
+                          {{ booking.returning_flight.departure_time | date:'medium' }}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="details-column arrival">
+                      <div class="arrival-details">
+                        <div class="arrival-city">
+                          {{ (booking.returning_flight.arrival_airport.city_name || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="arrival-iata">
+                          {{ (booking.returning_flight.arrival_airport.IATA_code || 'Loading...') | uppercase }}
+                        </div>
+                        <div class="arrival-time">
+                          {{ booking.returning_flight.arrival_time | date:'medium' }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reminders -->
+            <div class="reminders-details-wrapper">
+              <div class="reminders-details-title">
+                Reminders
+              </div>
+              <div class="reminders-details-container">
+                <div class="reminders-details">
+                  <p>
+                    Guests booked on Cebu Pacific's interline partners may need to transfer airport terminals when transiting via Manila. Please proceed to the transit area for the free Manila International Airport Authority shuttle service from 05:30 AM to 1:00 AM of the following day. The MIAA shuttle leaves every 30 to 40 minutes.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Passengers -->
+            <div class="passenger-section-wrapper">
+              <div class="passenger-section-title">
+                Guest Details
+              </div>
+              <div class="passenger-section-container">
+                <div class="passenger-section">
+                  <ul class="passenger-list">
+                    <li *ngFor="let passenger of booking.passengers" class="passenger-item">
+                      <p><strong>Passenger Name:</strong> {{ passenger.title }} {{ passenger.first_name }} {{ passenger.last_name }}</p>
+                      <p><strong>Date of Birth:</strong> {{ passenger.date_of_birth | date:'longDate' }}</p>
+                      <p><strong>Passenger Type:</strong> {{ getPassengerType(passenger.passenger_type) }}</p>
+                      <p><strong>Seat:</strong> {{ getRandomSeat() }}</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+

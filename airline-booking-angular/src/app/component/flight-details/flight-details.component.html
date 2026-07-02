@@ -1,0 +1,40 @@
+<div class="flight-details-container">
+    <div class="flight-details">
+        <div class="departing-flight-details">
+          <p class="section-title">Departing Flight</p>
+          <div class="route-info" *ngIf="!loading && !error">
+            <span class="city-name">{{ departureCityName }}</span>
+            <span class="iata-code">{{ departingFlights[0]!.departure_airport!.IATA_code }}</span>
+            <span class="to-text">To</span>
+            <span class="city-name">{{ arrivalCityName }}</span>
+            <span class="iata-code">{{ departingFlights[0]!.arrival_airport!.IATA_code }}</span>
+          </div>
+          <p class="date-text" *ngIf="selectedDepartDate">
+            {{ selectedDepartDate | date:'MMM d, y' }}
+          </p>
+        </div>
+    
+        <div class="returning-flight-details" *ngIf="flightType === 'Round-trip'">
+          <p class="section-title">Returning Flight</p>
+          <div class="route-info" *ngIf="!loading && !error">
+            <span class="city-name">{{ arrivalCityName }}</span>
+            <span class="iata-code">{{ returningFlights[0]!.departure_airport!.IATA_code }}</span>
+            <span class="to-text">To</span>
+            <span class="city-name">{{ departureCityName }}</span>
+            <span class="iata-code">{{ returningFlights[0]!.arrival_airport!.IATA_code }}</span>
+          </div>
+          <p class="date-text" *ngIf="selectedReturnDate">
+            {{ selectedReturnDate | date:'MMM d, y' }}
+          </p>
+        </div>
+    
+        <div class="guests-details">
+          <p class="section-title">Guests</p>
+          <h6 class="guests-count">{{ passengerSummary }}</h6>
+        </div>
+    
+        <div class="edit-search-button">
+          <button type="button">Edit Search</button>
+        </div>
+      </div>
+</div>

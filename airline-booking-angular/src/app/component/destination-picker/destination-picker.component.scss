@@ -1,0 +1,97 @@
+::ng-deep {
+  .location-group {
+    position: relative;
+    display: flex;
+    width: 100%; // Changed from max-width
+    gap: 0;
+
+    .swap-icon {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: white;
+      border: 1px solid #e2e2e2;
+      border-radius: 50%;
+      padding: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translate(-50%, -50%) scale(1.05);
+      }
+
+      img {
+        display: block;
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .location-container {
+      position: relative;
+      flex: 1; // Changed from fixed width
+      height: 55px;
+      border: 0.5px solid #e2e2e2;
+      z-index: 1;
+      min-width: 120px; // Add minimum width for smaller screens
+
+      &:first-child {
+        border-radius: 4px 0 0 4px;
+        border-right: 0;
+      }
+
+      &:last-child {
+        border-radius: 0 4px 4px 0;
+      }
+
+      mat-form-field {
+        width: 100%;
+        display: block;
+
+        .mat-mdc-text-field-wrapper {
+          background-color: white !important;
+          border: none !important;
+          box-shadow: none !important;
+          width: 100% !important;
+          
+          .mat-mdc-form-field-focus-overlay {
+            background-color: transparent !important;
+            opacity: 0 !important;
+          }
+
+          .mdc-line-ripple {
+            display: none !important;
+            &::before, &::after {
+              border-bottom-width: 0 !important;
+            }
+          }
+        }
+
+        .mat-mdc-form-field-infix {
+          padding-top: 24px !important;
+          padding-bottom: 8px !important;
+          min-height: 56px !important;
+        }
+
+        .mat-mdc-input-element {
+          height: 24px !important;
+          margin-top: 2px !important;
+          padding-bottom: 2px !important;
+        }
+
+        .mat-mdc-form-field-subscript-wrapper {
+          display: none !important;
+          height: 0 !important;
+          min-height: 0 !important;
+        }
+
+        .mdc-text-field--filled {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,313 @@
+<div class="info-container">
+    <!-- Book Popup -->
+    <div class="book-popup" *ngIf="currentMenu === 'book'">
+        <ul class="category">
+            <li class="icon-category">
+                <div class="icon-container"></div>
+                <a href="#">Flights</a>
+            </li>
+            <li class="icon-category">
+                <div class="icon-container"></div>
+                <a href="#">Seat Sale</a>
+            </li>
+            <li class="icon-category">
+                <div class="icon-container"></div>
+                <a href="#">CEB Super Pass</a>
+            </li>
+        </ul>
+        <hr>
+        <strong>FOR BUSINESS</strong>
+        <div class="for-business">
+            <div class="business-options">
+                <div class="business-option">
+                    <a href="#">Partnered Agents</a>
+                    <p>Log in with your agent ID</p>
+                </div>
+                <div class="business-option">
+                    <a href="#">Cargo</a>
+                    <p>Know more about our fast and flexible air cargo service</p>
+                </div>
+                <div class="business-option">
+                    <a href="#">Sales & Group Booking</a>
+                    <p>Be a partner and maximize your business’ travel budget</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manage Popup -->
+    <div class="manage-popup" *ngIf="currentMenu === 'manage'">
+        <ul class="category">
+            <li class="icon-category">
+                <div class="icon-container"></div>
+                <a href="#">Check In</a>
+            </li>
+            <li class="icon-category">
+                <div class="icon-container"></div>
+                <a href="#">Manage Booking</a>
+            </li>
+            <li class="icon-category">
+                <div class="icon-container"></div>
+                <a href="#">Flight Status</a>
+            </li>
+        </ul>
+        <hr>
+        <div class="for-business">
+            <div class="business-options">
+                <div class="business-option">
+                    <span><i class="material-icons">add_circle_outline</i><a href="#">Add ons</a></span>
+                    <p>Learn how to upgrade your trip with baggage, meals, seats, and other services</p>
+                </div>
+                <div class="business-option">
+                    <span><i class="material-icons">accessibility</i><a href="#">Special assistance</a></span>
+                    <p>Request services for guests needing special assistance</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="travel-info-popup" *ngIf="currentMenu === 'travel-info'">
+        <strong>BEFORE THE FLIGHT</strong>
+        <ul class="flight-contents">
+            <li class="flight-content">
+                <i class="material-icons">work</i>
+                <a href="#">Baggage Information</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">credit_card</i>
+                <a href="#">Payment Options</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">error</i>
+                <a href="#">Travel Advisories</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">location_on</i>
+                <a href="#">Booking & Check-in</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">description</i>
+                <a href="#">Travel Documents</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">accessibility</i>
+                <a href="#">Special Assistance</a>
+            </li>
+        </ul>
+        <hr>
+        <strong>FLYING WITH US</strong>
+        <ul class="flight-contents">
+            <li class="flight-content">
+                <i class="material-icons">help_outline</i>
+                <a href="#">FAQs</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">credit_card</i>
+                <a href="#">Service Fees</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">add_circle_outline</i>
+                <a href="#">Add-Ons</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">location_on</i>
+                <a href="#">Flight Status</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">flight_takeoff</i>
+                <a href="#">Flight Timetable</a>
+            </li>
+            <li class="flight-content">
+                <i class="material-icons">policy</i>
+                <a href="#">Airline Policies</a>
+            </li>
+        </ul>        
+    </div>
+    
+
+    <div class="explore-popup" *ngIf="currentMenu === 'explore'">
+        <div class="destinations">
+            <div class="domestic">
+                <span>
+                    <img src="https://cdn.media.amplience.net/i/cebupacificair/PHIcon?fmt=auto&maxW=1920&maxH=1920" alt="Domestic Destinations">
+                    <a href="#">Philippine Destinations</a>
+                </span>
+                <div class="destination-contents">
+                    <div class="destination-content"><span>Boracay</span></div>
+                    <div class="destination-content"><span>Siargao</span></div>
+                    <div class="destination-content"><span>Cebu</span></div>
+                </div>
+            </div>
+            <div class="international">
+                <span>
+                    <img src="https://cdn.media.amplience.net/i/cebupacificair/IntIcon?fmt=auto&maxW=1920&maxH=1920" alt="International Destinations">
+                    <a href="#">International Destinations</a>
+                </span>
+                <div class="destination-contents">
+                    <div class="destination-content"><span>Dubai</span></div>
+                    <div class="destination-content"><span>Hong Kong</span></div>
+                    <div class="destination-content"><span>Singapore</span></div>
+                </div>
+            </div>
+        </div>    
+        <hr>
+        <div class="articles">
+            <div class="article-contents">
+                <div class="article-content">
+                    <span>
+                        <img src="https://cdn.media.amplience.net/i/cebupacificair/TravelHAcksIcon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon">
+                        <a href="#">Discover with Smile</a>
+                    </span>
+                    <p>Simple tips to make you a better and smarter traveler</p>
+                </div>
+                <div class="article-content">
+                    <span>
+                        <img src="https://cdn.media.amplience.net/i/cebupacificair/WhereWeFlyIcon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon">
+                        <a href="#">Discover with Smile</a>
+                    </span>
+                    <p>See our full list of destinations and choose where to go for your next trip</p>
+                </div>
+                <div class="article-content">
+                    <span>
+                        <img src="https://cdn.media.amplience.net/i/cebupacificair/CityGuidesIcon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon">
+                        <a href="#">City Guides</a>
+                    </span>
+                    <p>Know the basics and discover hidden gems in your next destination</p>
+                </div>
+            </div>    
+        </div>
+    </div>
+    
+
+    <div class="about-popup" *ngIf="currentMenu === 'about'">
+        <ul class="about-contents">
+            <li class="about-content">
+                <a href="#">Our Story</a>
+                <p>See how we made moments happen for everyJuan from 1996 up to present</p>
+            </li>
+            <li class="about-content">
+                <a href="#">Media Center</a>
+                <p>Be updated on the latest airline news through our press releases and media galleries</p>
+            </li>
+            <li class="about-content">
+                <a href="#">Talk to Us</a>
+                <p>Get answers to your questions or send feedback to our customer support team</p>
+            </li>
+            <li class="about-content">
+                <a href="#">Campaigns & Partners</a>
+                <p>Read up on our campaigns and partnership initiatives</p>
+            </li>
+            <li class="about-content">
+                <a href="#">Company Information</a>
+                <p>Read more information about Cebu Pacific for shareholders, potential investors, and financial analysts</p>
+            </li>
+            <li class="about-content">
+                <span>
+                    <a href="#">Careers</a>
+                    <img src="https://cdn.media.amplience.net/i/cebupacificair/OpenNewTab?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon">
+                </span>
+            </li>
+        </ul>      
+    </div>
+
+    <!-- Combined Login/Logout Popup -->
+    <div class="login-popup" *ngIf="currentMenu === 'login'">
+        <!-- Not Logged In Content -->
+        <div *ngIf="!authService.isAuthenticated()">
+            <ul class="category">
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a (click)="navigateToMyBookings()">My Bookings</a>
+                </li>
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a href="#">Wallet</a>
+                </li>
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a href="#">Guest</a>
+                </li>
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a href="#">Inbox</a>
+                </li>
+                <li>
+                    <div class="login-button">
+                        <button type="button" (click)="navigateToLogin()">Login</button>
+                    </div>
+                    <p>Not yet a Member? <a href="/signup">Sign up</a></p>
+                </li>
+            </ul>
+            <hr>
+            <div class="for-business">
+                <div class="business-options">
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/TF%20wallet_24px?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">Travel Fund</a></span>
+                        <p>View your available Travel Fund and use it to book flights or add-ons</p>
+                    </div>
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/Vouchersicon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">My Vouchers</a></span>
+                        <p>Redeem your travel vouchers before they expire</p>
+                    </div>
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/Settingsicon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">Settings</a></span>
+                        <p>Manage your notification preferences here</p>
+                    </div>
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/Addonsicon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">Add-ons Preferences</a></span>
+                        <p>Set your preferences when you upgrade your trip with baggage, meals, seats, and other services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logged In Content -->
+        <div *ngIf="authService.isAuthenticated()">
+            <ul class="category">
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a href="#">My Bookings</a>
+                </li>
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a href="#">Wallet</a>
+                </li>
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a href="#">Guest</a>
+                </li>
+                <li class="icon-category">
+                    <div class="icon-container"></div>
+                    <a href="#">Inbox</a>
+                </li>
+                <li>
+                    <div class="logout-span">
+                        <img class="logout-icon" src="https://cdn.media.amplience.net/i/cebupacificair/logoutGrey_24px?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="Log out">
+                        <a (click)="logout()">Log out</a>
+                    </div>
+                </li>
+            </ul>
+            <hr>
+            <div class="for-business">
+                <div class="business-options">
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/TF%20wallet_24px?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">Travel Fund</a></span>
+                        <p>View your available Travel Fund and use it to book flights or add-ons</p>
+                    </div>
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/Vouchersicon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">My Vouchers</a></span>
+                        <p>Redeem your travel vouchers before they expire</p>
+                    </div>
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/Settingsicon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">Settings</a></span>
+                        <p>Manage your notification preferences here</p>
+                    </div>
+                    <div class="business-option">
+                        <span><img src="https://cdn.media.amplience.net/i/cebupacificair/Addonsicon?fmt=auto&maxW=1920&maxH=1920" alt="logo-icon"><a href="#">Add-ons Preferences</a></span>
+                        <p>Set your preferences when you upgrade your trip with baggage, meals, seats, and other services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,519 @@
+.info-container {
+    padding: 20px 50px;
+}
+
+.book-popup {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.category {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 50px;
+}
+
+.icon-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-container {
+    width: 58px;
+    height: 58px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+
+.book-popup {
+    .icon-category {
+        &:nth-child(1) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/FlightsIcon?fmt=auto&maxW=1920&maxH=1920');
+        }
+        &:nth-child(2) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/SeatSaleIcon?fmt=auto&maxW=1920&maxH=1920');
+        }
+        &:nth-child(3) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/CSP%20icon-friend?fmt=auto&maxW=1920&maxH=1920');
+        }
+    }
+}
+
+.manage-popup {
+    .icon-category {
+        &:nth-child(1) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/CheckInIcon?fmt=auto&maxW=1920&maxH=1920');
+        }
+        &:nth-child(2) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/ManageIcon?fmt=auto&maxW=1920&maxH=1920');
+        }
+        &:nth-child(3) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/FlightStatusIcon?fmt=auto&maxW=1920&maxH=1920');
+        }
+    }
+}
+
+.icon-category a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #006FC1;
+    font-size: 16px;
+}
+
+.icon-category a:hover {
+    color: #00A4E5;
+}
+
+.book-popup, .manage-popup {
+    padding-bottom: 30px;
+
+    hr {
+        border: none;
+        border-top: 2px solid #ccc;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .for-business {
+        display: flex;
+        flex-direction: row;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        padding-top: 15px;
+    }
+
+    .business-options {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+    .business-option {
+        max-width: 246px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: all 0.3s ease;
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        i {
+            font-size: 15px;
+            color: #006FC1;
+        }
+
+        a {
+            letter-spacing: .0025em;
+            text-decoration: none;
+            color: #006FC1;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        p {
+            color: #9FA0A0;
+            font-size: 14px;
+        }
+    }
+}
+
+strong {
+    font-size: 12px;
+    color: #333;
+}
+
+.travel-info-popup {
+    hr {
+        border: none;
+        border-top: 2px solid #ccc;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .flight-contents {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        padding: 0;
+        list-style: none;
+        margin: 20px 0;
+    }
+
+    .flight-content {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        font-size: 16px;
+        color: #006FC1;
+        transition: color 0.3s ease;
+        align-items: center;
+
+        a {
+            letter-spacing: .0025em;
+            text-decoration: none;
+            color: #006FC1;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        i {
+            font-size: 15px;
+        }
+
+        a, i {
+            margin: 5px 0;
+        }
+    }
+}
+
+.explore-popup {
+
+    hr {
+        border: none;
+        border-top: 2px solid #ccc;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .destinations {
+        display: flex;
+        flex-direction: row;
+        gap: 50px;
+
+        .domestic {
+
+            span {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            a {
+                letter-spacing: .0025em;
+                text-decoration: none;
+                color: #006FC1;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            .destination-contents {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding-top: 20px;
+
+                .destination-content {
+                    border-radius: 4px;
+                    width: 100px;
+                    height: 80px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+
+                    &:nth-child(1) {
+                        background-image: url('https://cdn.media.amplience.net/i/cebupacificair/HPB_Boracay_MPH_02?fmt=auto&maxW=1920&maxH=1920&w=492&qlt=60&fmt.options=interlaced');
+                    }
+
+                    &:nth-child(2) {
+                        background-image: url('https://cdn.media.amplience.net/i/cebupacificair/IAO-Siargao-Philippines-Island-4022x2259?fmt=auto&maxW=1920&maxH=1920&w=492&qlt=60&fmt.options=interlaced');
+                    }
+
+                    &:nth-child(3) {
+                        background-image: url('https://cdn.media.amplience.net/i/cebupacificair/HPB-DOM-CEB-Cebu-Beach-shutterstock_581734225?fmt=auto&maxW=1920&maxH=1920&w=492&qlt=60&fmt.options=interlaced');
+                    }
+
+                    span {
+                        padding-top: 55px;
+                        padding-left: 10px;
+                        font-size: 12px;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .international {
+
+            span {
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            a {
+                letter-spacing: .0025em;
+                text-decoration: none;
+                color: #006FC1;
+                font-weight: 500;
+                font-size: 14px;
+            }
+
+            .destination-contents {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding-top: 20px;
+
+                .destination-content {
+                    border-radius: 4px;
+                    width: 100px;
+                    height: 80px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+
+                    &:nth-child(1) {
+                        background-image: url('https://cdn.media.amplience.net/i/cebupacificair/HPB-INTL-DXB-Dubai-01-shutterstock_523362844?fmt=auto&maxW=1920&maxH=1920&w=492&qlt=60&fmt.options=interlaced');
+                    }
+
+                    &:nth-child(2) {
+                        background-image: url('https://cdn.media.amplience.net/i/cebupacificair/HKG-HongKong-SightSeeing-4256x2832?fmt=auto&maxW=1920&maxH=1920&w=492&qlt=60&fmt.options=interlaced');
+                    }
+
+                    &:nth-child(3) {
+                        background-image: url('https://cdn.media.amplience.net/i/cebupacificair/SIN-Singapore-MelionPark3-5519x3697?fmt=auto&maxW=1920&maxH=1920&w=492&qlt=60&fmt.options=interlaced');
+                    }
+                }
+
+                span {
+                    padding-top: 55px;
+                    padding-left: 10px;
+                    font-size: 12px;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .articles {
+        padding-bottom: 30px;
+
+        .article-contents {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+    
+        .article-content {
+            max-width: 246px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+        
+            span {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                justify-content: flex-start; 
+            }
+        
+            img {
+                width: auto;
+                height: 20px; 
+                max-width: 100%; 
+                object-fit: contain; 
+            }
+        
+            a {
+                letter-spacing: .0025em;
+                text-decoration: none;
+                color: #006FC1;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 20px; 
+            }
+        
+            p {
+                color: #9FA0A0;
+                font-size: 14px;
+            }
+        }
+        
+    }
+}
+
+.about-popup {
+    hr {
+        border: none;
+        border-top: 2px solid #ccc;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .about-contents {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+        grid-gap: 20px; /* Space between grid items */
+        padding: 0;
+        list-style: none;
+        margin: 20px 0;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition: all 0.3s ease;
+
+        a {
+            letter-spacing: .0025em;
+            text-decoration: none;
+            color: #006FC1;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 20px; /* Similar to explore's anchor tags */
+        }
+
+        p {
+            color: #9FA0A0;
+            font-size: 14px;
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        img {
+            width: auto;
+            height: 20px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+
+.login-popup {
+    hr {
+        border: none;
+        border-top: 2px solid #ccc;
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .icon-category {
+        &:nth-child(1) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/BookingsBoarding?fmt=auto&maxW=1920&maxH=1920');
+        }
+        &:nth-child(2) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/Wallet?fmt=auto&maxW=1920&maxH=1920');
+        }
+        &:nth-child(3) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/Guests_1?fmt=auto&maxW=1920&maxH=1920');
+        }
+        &:nth-child(4) .icon-container {
+            background-image: url('https://cdn.media.amplience.net/i/cebupacificair/Inbox?fmt=auto&maxW=1920&maxH=1920');
+        }
+    }
+    .login-button button{
+        width: 100%;
+        max-width: 100%;
+        max-height: 48px;
+        font-weight: 700;
+        font-size: 15px;
+        font-family: Noto Sans, sans-serif;
+        letter-spacing: .015em;
+        line-height: 24px;
+        outline: none !important;
+        padding: 12px 0;
+        transition: box-shadow .3s ease;
+        text-align: center;
+        border-radius: 10px;
+        color: #fff;
+        background: linear-gradient(168.99deg, #00a4e5 17.86%, #006fc1 87.93%);
+    }
+
+    .for-business {
+        width: 70%; /* Occupy half of the popup width */
+    }
+
+    .business-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-gap: 20px; /* Space between grid items */
+        padding: 0;
+        margin: 0;
+    }
+
+    .business-option {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: all 0.3s ease;
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        img {
+            width: auto;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        a {
+            letter-spacing: .0025em;
+            text-decoration: none;
+            color: #006FC1;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+
+        p {
+            color: #9FA0A0;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.4;
+        }
+    }
+
+    li p {
+        margin: 15px 0 0;
+        text-align: center;
+        
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #006FC1;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+    }
+}
+
+.logout-span{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    padding-left: 40px;
+    padding-top: 20px;
+    img{
+        width: 17px;
+        height: 16px;
+    }
+    a{
+        color: #007bff;
+        font-weight: 700;
+    }
+}

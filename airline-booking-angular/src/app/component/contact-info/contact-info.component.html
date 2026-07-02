@@ -1,0 +1,61 @@
+<div class="contact-info">
+    <div class="header">
+      <div class="header-texts">
+        <h1>Contact Information</h1>
+        <span class="subtitle">Let us know how we may reach you if there are changes or questions related to your booking and payment. We will also be sending your itinerary to below email.</span>
+      </div>
+    </div>
+    
+    <div class="main-container">
+      <div class="toggle-container">
+        <div class="toggle-icon">
+            <span class="toggle-button active"></span>
+        </div>
+        <div class="toggle-content">
+            <span class="title">Use guest's details</span>
+        </div>
+      </div>
+
+      <div class="select-guest-container">
+        <h6 class="label-title">Select a guest</h6>
+        <div class="selected-guest">
+          <span class="title">Select<span>*</span></span>
+          <select [(ngModel)]="selectedPassenger">
+            <option value="Adult 1" selected aria-readonly="true">Adult 1</option>
+            <option *ngFor="let p of passengers; trackBy: trackPassenger" 
+                    [ngValue]="p">
+              {{ p.name.firstName }} {{ p.name.lastName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="contact-number-container">
+        <h6 class="label-title">Contact Number</h6>
+        <div class="contacts">
+          <div class="country-code">
+            <span class="title">Country code<span>*</span></span>
+            <select name="" id="">
+              <option value="Select" aria-readonly="true">Select</option>
+              <option value="+63">(+63)</option>
+            </select>
+          </div>
+          <div class="mobile-number">
+            <span class="title">Mobile Number<span>*</span></span>
+            <input type="text" placeholder="9XX 1234567">
+          </div>
+        </div>
+      </div>
+
+      <div class="email-container">
+        <div class="email">
+          <span class="title">Email<span>*</span></span>
+          <input type="text" placeholder="sample@email.com">
+        </div>
+        <div class="retype-email">
+          <span class="title">Retype Email<span>*</span></span>
+          <input type="text" placeholder="sample@email.com">
+        </div>
+      </div>
+    </div>
+  </div>

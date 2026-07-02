@@ -1,0 +1,32 @@
+<div class="datepicker-group">
+  <!-- Depart Date -->
+  <div class="datepicker-container">
+    <mat-form-field>
+      <mat-label>Depart</mat-label>
+      <input matInput 
+            [(ngModel)]="selectedDepartDate"
+            [matDatepicker]="departPicker"
+            [min]="minDate"
+            (click)="departPicker.open()"
+            (focus)="departPicker.open()"
+            name="departDatePicker">
+      <mat-datepicker #departPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <!-- Return Date - Only show for Round-trip -->
+  <div class="datepicker-container" *ngIf="flightType === 'Round-trip'">
+    <mat-form-field floatLabel="always">
+      <mat-label>Return</mat-label>
+      <input matInput 
+            [(ngModel)]="selectedReturnDate"
+            [matDatepicker]="returnPicker"
+            [min]="minDate"
+            (click)="returnPicker.open()"
+            [placeholder]="!selectedReturnDate ? 'Returning on' : ''"
+            name="returnDatePicker"
+            readonly>
+      <mat-datepicker #returnPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>

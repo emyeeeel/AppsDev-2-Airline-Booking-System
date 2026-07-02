@@ -1,0 +1,382 @@
+// General container styles
+.loading-container,
+.no-bookings-container {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+}
+
+.bookings-container {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.booking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.booking-item {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ffdd00; // Cebu Pacific's yellow accent
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+
+  h3 {
+    margin: 0;
+    color: #007bff;
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+}
+
+/* Flight details container styling */
+.flight-details-container, .booking-details-container, .reminders-details-container {
+  border: 2px solid #CCCCCC; /* Set border color to #CCCCCC */
+
+}
+
+.booking-details {
+  display: flex; /* Arrange child divs in a row */
+  justify-content: space-between; /* Add spacing between the divs */
+
+  div {
+    flex: 1; /* Ensure equal width for all child divs */
+    padding: 10px; /* Add padding inside each div */
+    border: 1px solid #ddd; /* Add a border to each div */
+    text-align: left; /* Align text to the left */
+  }
+
+  .booking-reference {
+    background-color: #ffdd00; /* Set background color to #ffdd00 */
+    color: #333; /* Set text color for contrast */
+    font-weight: bold; /* Make text bold */
+    text-align: center; /* Center the content */
+  }
+
+  strong {
+    display: block; /* Ensure the label is on its own line */
+    margin-bottom: 5px; /* Add spacing below the label */
+    font-size: 1rem; /* Adjust font size for the label */
+    font-weight: normal;
+  }
+
+  p {
+    margin: 0; /* Remove default margin */
+    font-size: 1rem; /* Adjust font size for the text */
+    color: #333; /* Set text color */
+    font-weight: bold;
+  }
+}
+
+.passenger-section {
+  margin-top: 15px;
+
+  h4 {
+    margin-bottom: 10px;
+    color: #007bff;
+    font-size: 1.2rem;
+    border-left: 4px solid #ffdd00;
+    padding-left: 10px;
+  }
+}
+
+.passenger-list {
+  list-style: none;
+  padding: 0;
+}
+
+.passenger-item {
+  margin-bottom: 10px;
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  p {
+    margin: 3px 0;
+    font-size: 0.9rem;
+    color: #555;
+
+    strong {
+      color: #007bff;
+    }
+  }
+}
+
+// Highlight Cebu Pacific's yellow for important details
+.currency {
+  color: #ffdd00;
+  font-weight: bold;
+}
+
+.date {
+  font-style: italic;
+  color: #666;
+}
+
+/* Label row styling */
+.details-row.label-row {
+  background-color: #CCCCCC; /* Set background color to #CCCCCC */
+  padding: 8px; /* Add padding for better spacing */
+  font-size: 1rem; /* Adjust font size for labels */
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure vertical alignment */
+}
+
+/* Details row styling (non-label rows) */
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure vertical alignment matches label-row */
+  padding: 8px; /* Match padding with label-row */
+  font-size: 0.9rem; /* Adjust font size for details */
+  background-color: transparent; /* Ensure no background for non-label rows */
+}
+
+.details-column {
+  flex: 1;
+  margin: 4px 5px;
+  text-align: left;
+}
+
+.details-column strong {
+  font-weight: normal;
+}
+
+.details-column div {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center the icon and text */
+}
+
+.dotted-divider {
+    border: none; /* Remove default border */
+    height: 2px; /* Increase the height for a bolder appearance */
+    background: repeating-linear-gradient(
+      90deg,
+      #000000 0 2px, /* Increase the size of the dots */
+      transparent 4px 6px /* Keep the gap between dots */
+    );
+    margin: 16px 15px; /* Add spacing above and below the divider */
+  }
+
+  .flight-details-wrapper, .booking-details-wrapper, .reminders-details-wrapper {
+    padding: 16px;
+    border-radius: 8px; /* Optional rounded corners */
+    margin-bottom: 16px; /* Add spacing below the wrapper */
+  }
+
+  .flight-details-title, .booking-details-title, .reminders-details-title{
+    background-color: #FEE016; /* Set background color to yellow */
+    padding: 8px 16px; /* Add padding for spacing */
+    font-size: 1rem; /* Adjust font size for the title */
+    border-top-left-radius: 8px; /* Add top-left border radius */
+    border-top-right-radius: 0; /* Ensure no radius on the top-right */
+    border-bottom-left-radius: 0; /* Ensure no radius on the bottom-left */
+    border-bottom-right-radius: 0; /* Ensure no radius on the bottom-right */
+    max-width: 200px;
+  }
+
+.booking-details-wrapper {
+  flex: 0 0 85%; /* Allow the wrapper to take up 80% of the parent width */
+  display: flex; /* Ensure flexbox layout for its children */
+  flex-direction: column; /* Stack its children vertically */
+  padding: 16px; /* Add padding for spacing */
+  background-color: #ffffff; /* Optional: Set a background color */
+}
+
+/* Material Symbols styling */
+.material-symbols-outlined {
+  vertical-align: middle; /* Align icon vertically with text */
+  margin-right: 4px; /* Add spacing between the icon and the flight number */
+  font-size: 1.2rem; /* Adjust icon size to match text */
+  color: #2CA5C9; /* Set icon color to #2CA5C9 */
+}
+
+.flight-number {
+    font-size: 1.5rem;
+  }
+
+  .departure-details,
+.arrival-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Add spacing between child elements */
+}
+
+.departure-details > div,
+.arrival-details > div {
+  align-self: flex-start; /* Align child divs to the leftmost side */
+}
+
+.departure-city,
+.arrival-city {
+  font-size: 1rem;
+}
+
+.departure-iata,
+.arrival-iata {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.departure-time,
+.arrival-time {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.reminders-details {
+  p {
+    text-align: left; /* Center the text */
+    padding: 25px; /* Add padding for spacing */
+    font-size: 1rem; /* Adjust font size */
+    border: 1px solid #ddd; /* Optional: Add a border */
+    border-radius: 4px; /* Optional: Add rounded corners */
+  }
+}
+
+.passenger-section-wrapper {
+  padding: 16px;
+  background-color: #f9f9f9; /* Light background for consistency */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 16px; /* Spacing below the wrapper */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.passenger-section-title {
+  background-color: #FEE016; /* Yellow background for the title */
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  max-width: 200px;
+}
+
+.passenger-section-container {
+  padding: 8px;
+  background-color: #ffffff; /* White background for the container */
+  border: 2px solid #ddd; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.passenger-list {
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.passenger-item {
+  margin-bottom: 16px; /* Add spacing between passengers */
+  padding: 8px;
+  border: 1px solid #ddd; /* Add border for each passenger */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background */
+}
+
+.passenger-item p {
+  margin: 4px 0; /* Add spacing between paragraphs */
+  font-size: 0.9rem; /* Adjust font size */
+  color: #333; /* Text color */
+}
+
+.passenger-item strong {
+  font-weight: bold;
+  color: #007bff; /* Highlight labels */
+}
+
+.booking-reference p{
+    font-size: 1.5rem;
+}
+
+.itinerary-header {
+  background-color: #FEE016; /* Set background color to yellow */
+  min-height: 150px; /* Set minimum height */
+  padding: 16px; /* Add padding for spacing */
+  margin-bottom: 16px; /* Add spacing below the wrapper */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center the content */
+  justify-content: space-between; /* Space out the logo and text */
+
+  P{
+    font-size: 2.5rem; /* Adjust font size for the text */
+    color: #333; /* Set text color */
+    margin-left: 16px; /* Add spacing between the logo and text */
+    margin-right: 25px;
+  }
+}
+
+.logo-header-container {
+  width: 301px;
+  height: 98px;
+  background-image: url('https://cdn.media.amplience.net/i/cebupacificair/ProjectSunrise-LinearColored-Resized-206x67?fmt=auto&maxW=1920&maxH=1920&w=206&h=67&sm=c');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* Ensure the image scales properly */
+}
+
+.booking-barcode {
+  width: 100%; /* Set the width to fill the container */
+  height: 150px; /* Set a fixed height for the barcode */
+  background-image: url('https://img.freepik.com/premium-vector/barcode-icon-black-isolated-white-background-eps-10-vector_209910-538.jpg?w=1380');
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image */
+  background-size: contain; /* Scale the image to fit within the container */
+  margin-top: 16px; /* Add spacing above the barcode */
+}
+
+.booking-details-section{
+    display: flex;
+    flex-direction: row;
+}
+
+.bookings-container h2 {
+    font-size: 2rem; /* Increase font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    color: #007bff; /* Set a blue color for the text */
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    text-transform: uppercase; /* Optional: Make the text uppercase */
+    letter-spacing: 1px; /* Add spacing between letters for a modern look */
+  }
+
+.content-wrapper{
+    margin-top: 125px;
+}
+
+app-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+  }

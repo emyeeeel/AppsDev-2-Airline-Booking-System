@@ -1,0 +1,55 @@
+<div class="login-container">
+    <div class="logo-container">
+        <h1>
+            <img src="https://ok11static.oktacdn.com/fs/bco/1/fs0ej2a1naIy3vHpy4x7" alt="Cebu Pacific" (click)="navigateToHome()">
+        </h1>
+    </div>
+    <div class="login-contents">
+        <h2>Sign up</h2>
+
+        <label for="email">Email</label>
+        <div class="email-container">
+              <input type="text" id="email" [(ngModel)]="email">
+        </div>
+
+        <label for="last-name">Last Name</label>
+        <div class="last-name-container">
+              <input type="text" id="last-name" [(ngModel)]="lastName">
+        </div>
+        
+        <label for="first-name">First Name</label>
+        <div class="first-name-container">
+              <input type="text" id="first-name" [(ngModel)]="firstName">
+        </div>
+        
+        <label for="password">Password</label>
+        <div class="password-container">
+              <input type="password" id="password" [(ngModel)]="password">
+        </div>
+        <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+        </div>
+
+        <div class="password-requirements">
+            <div class="requirements-title">Password requirements:</div>
+            <ul>
+                <li>At least 8 characters</li>
+                <li>A lowercase letter</li>
+                <li>An uppercase letter</li>
+                <li>A number</li>
+                <li>A symbol</li>
+                <li>No parts of your username</li>
+                <li>Does not include your first name</li>
+                <li>Does not include your last name</li>
+            </ul>
+        </div>
+
+        <div class="login-button">
+            <button type="button" (click)="submitSignup()">Sign up</button>
+        </div>
+        <hr>
+        <div class="signup-info">
+            <span (click)="navigateToLogin()">Already have an account?</span>
+        </div>
+    </div>
+</div>

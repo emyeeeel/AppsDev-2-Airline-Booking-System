@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.password_validation import validate_password
 from django.utils.translation import gettext_lazy as _
 import re
+from .models import Booking, Country, City, Airport, Flight, Passenger
 
 User = get_user_model()
 
@@ -98,3 +99,111 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'email', 'first_name', 'last_name')
+
+
+class AirportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Airport
+        fields = ['id', 'name', 'IATA_code', 'city'] 
+
+class CitySerializer(serializers.ModelSerializer):
+    airports = AirportSerializer(many=True, read_only=True, source='airport_set')
+    
+    class Meta:
+        model = City
+        fields = ['id', 'name', 'country', 'code', 'airports']  # Include 'country'
+
+class CountrySerializer(serializers.ModelSerializer):
+    # Include all cities in this country
+    cities = CitySerializer(many=True, read_only=True, source='city_set')
+    
+    class Meta:
+        model = Country
+        fields = ['id', 'name', 'code', 'cities']
+
+class FlightSerializer(serializers.ModelSerializer):
+    departure_airport = AirportSerializer(read_only=True)
+    arrival_airport = AirportSerializer(read_only=True)
+    departure_airport_id = serializers.PrimaryKeyRelatedField(
+        queryset=Airport.objects.all(), 
+        source='departure_airport',
+        write_only=True
+    )
+    arrival_airport_id = serializers.PrimaryKeyRelatedField(
+        queryset=Airport.objects.all(), 
+        source='arrival_airport',
+        write_only=True
+    )
+
+    class Meta:
+        model = Flight
+        fields = [
+            'id', 'flight_number', 'departure_airport', 'arrival_airport',
+            'departure_time', 'arrival_time', 'duration', 'price',
+            'total_seats', 'available_seats', 'airline',
+            'departure_airport_id', 'arrival_airport_id'
+        ]
+
+# Add to existing serializers
+class PassengerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Passenger
+        fields = '__all__'
+        read_only_fields = ('booking',)
+
+class BookingSerializer(serializers.ModelSerializer):
+    passengers = PassengerSerializer(many=True)
+    departing_flight_id = serializers.PrimaryKeyRelatedField(
+        queryset=Flight.objects.all(),
+        source='departing_flight'
+    )
+    returning_flight_id = serializers.PrimaryKeyRelatedField(
+        queryset=Flight.objects.all(),
+        source='returning_flight',
+        required=False,
+        allow_null=True
+    )
+
+    class Meta:
+        model = Booking
+        fields = [
+            'id', 'booking_reference', 'user', 'departing_flight_id',
+            'returning_flight_id', 'travel_insurance', 'total_price',
+            'created_at', 'passengers'
+        ]
+        read_only_fields = ['user', 'total_price', 'booking_reference']
+
+    def create(self, validated_data):
+        request = self.context.get('request')  # Get the request from the serializer context
+        if not request or not request.user or not request.user.is_authenticated:
+            raise serializers.ValidationError("User must be authenticated to create a booking.")
+
+        passengers_data = validated_data.pop('passengers')
+
+        # Set the user field
+        booking = Booking.objects.create(
+            **validated_data,
+            user=request.user,  # Assign the authenticated user
+            total_price=0  # Temporary value
+        )
+
+        # Create passengers after booking has an ID
+        for passenger_data in passengers_data:
+            Passenger.objects.create(booking=booking, **passenger_data)
+
+        # Calculate actual price with passenger count
+        passenger_count = booking.passengers.count()
+        booking.total_price = booking.calculate_total_price()
+        booking.save()
+
+        # Update flight seats after final save
+        departing_flight = booking.departing_flight
+        departing_flight.available_seats -= passenger_count
+        departing_flight.save()
+
+        if booking.returning_flight:
+            returning_flight = booking.returning_flight
+            returning_flight.available_seats -= passenger_count
+            returning_flight.save()
+
+        return booking

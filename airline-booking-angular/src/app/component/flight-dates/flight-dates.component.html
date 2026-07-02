@@ -1,0 +1,31 @@
+<div class="flight-price-container">
+  <!-- Previous Button -->
+  <button class="nav-button prev" (click)="goToPreviousWeek()">
+    <img class="nav-arrow"
+         src="https://cdn.media.amplience.net/i/cebupacificair/LFF%20chevron_right_24px?fmt=auto&maxW=1920&maxH=1920"
+         alt="Previous Week"
+         title="Previous Week"
+         style="transform: rotate(180deg)">
+  </button>
+
+  <!-- Flight Cards -->
+  <div
+    *ngFor="let flight of weekDates; let i = index"
+    class="flight-card"
+    [ngClass]="{ 'highlight': flight.isToday }"
+    #flightCard
+  >
+    <span class="flight-date">{{ flight.dateStr }}</span>
+    <span class="price">
+      <strong>PHP {{ flight.price.toLocaleString(undefined, { minimumFractionDigits: 2 }) }}</strong>
+    </span>
+  </div>
+
+  <!-- Next Button -->
+  <button class="nav-button next" (click)="goToNextWeek()">
+    <img class="nav-arrow"
+         src="https://cdn.media.amplience.net/i/cebupacificair/LFF%20chevron_right_24px?fmt=auto&maxW=1920&maxH=1920"
+         alt="Next Week"
+         title="Next Week">
+  </button>
+</div>

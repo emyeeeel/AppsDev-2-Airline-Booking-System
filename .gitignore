@@ -1,0 +1,23 @@
+# --- Python / Django ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+*.log
+staticfiles/
+
+# --- Node / Angular ---
+node_modules/
+airline-booking-angular/.angular/
+airline-booking-angular/dist/
+airline-booking-angular/.vscode/
+npm-debug.log*
+
+# --- Editors / OS ---
+.DS_Store
+Thumbs.db
+.idea/
+*.suo
+*.user

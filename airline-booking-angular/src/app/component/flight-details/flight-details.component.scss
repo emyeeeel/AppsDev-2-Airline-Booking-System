@@ -1,0 +1,90 @@
+.flight-details-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  max-width: 1056px;
+}
+
+.flight-details {
+  padding: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center; 
+  height: 120px;
+  gap: 25px;
+  border-bottom: 1px solid #eee;
+  width: 100%; 
+
+  .departing-flight-details,
+  .returning-flight-details, 
+  .guests-details {
+    flex: 1; 
+
+    .section-title, .date-text {
+      font-size: 11px;
+      color: #858585;
+    }
+
+    .route-info {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 5px 0;
+
+      .city-name {
+        font-weight: 700;
+        font-size: 15px;
+        color: #333;
+        margin-right: 5px;
+      }
+
+      .iata-code {
+        font-weight: 400;
+        font-size: 15px;
+        color: #333;
+      }
+
+      .to-text {
+        font-weight: 700;
+        color: #333;
+        margin: 0 5px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .guests-details {
+    h6 {
+      font-weight: 400;
+      color: #333;
+      font-size: 15px;
+      margin: 5px 0;
+    }
+  }
+
+  .edit-search-button {
+    flex-shrink: 0; 
+    button {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid #006FC1;
+      color: #006fc1;
+      letter-spacing: .015em;
+      background: transparent;
+      max-width: 165px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+  
+      &:hover {
+        background-color: rgba(0, 111, 193, 0.05);
+      }
+  
+      &:active {
+        background-color: rgba(0, 111, 193, 0.1);
+      }
+    }
+  }
+}

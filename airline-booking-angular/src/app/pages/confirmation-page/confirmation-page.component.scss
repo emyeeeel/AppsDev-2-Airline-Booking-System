@@ -1,0 +1,114 @@
+// Variables
+$color-primary: #006fc1;
+$color-text: #333;
+$color-muted: #666;
+$shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+$breakpoint-mobile: 768px;
+
+app-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.booking-wrapper {
+  margin-top: 107px;
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmation-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 25px;
+
+  .confirmation-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 25px;
+    gap: 15px;
+    background: #fff;
+    border-radius: 12px;
+    border-top: 10px solid #5CAB4C;
+    box-shadow: 0 4px 23px #0000001a;
+  }
+}
+
+.text-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 0;
+
+  .col-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 2.5;
+  }
+
+  .col-2,
+  .col-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .col-3{
+    .value{
+      color: $color-text;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
+  .confirmation-icon-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .icon {
+      font-size: 24px;
+      color: #5CAB4C; 
+      vertical-align: middle;
+    }
+    
+
+    .status-text {
+      color: #5CAB4C;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+
+  .instruction-text {
+    font-size: 14px;
+    color: $color-muted;
+    padding-top: 5px;
+  }
+
+  .label {
+    font-size: 12px;
+    font-weight: 600;
+    color: $color-muted;
+  }
+
+  .value {
+    font-size: 14px;
+    color: $color-muted;
+  }
+}
+
+
+.button-section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}

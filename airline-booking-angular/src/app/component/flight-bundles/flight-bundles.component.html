@@ -1,0 +1,171 @@
+<div class="bundle-container">
+    <div class="bundle-header">
+        <div class="header-title">
+            <span style="color: rgb(51, 51, 51); font-family: 'Noto Sans', sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: 0.075px; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(247, 247, 247); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">
+                Select a bundle for all flights
+            </span>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="bundle-contents">
+            <div class="tip">
+                <span class="tip-content">Tip: Avoid airport fees and long lines. Buy your add-ons ahead of time!</span>
+            </div>
+
+            <div class="bundle-selections">
+                <!-- GO Basic Bundle -->
+                <div class="go-basic promo" [class.selected]="selectedBundle === 'go-basic'">
+                    <div class="header">
+                        <span class="title">
+                            <span class="title-text">GO Basic</span>
+                        </span>
+                        <span class="subtitle">
+                            <span class="subtitle-text">Buy other add-ons later at regular price</span>
+                        </span>
+                    </div>
+                    <hr class="divider">
+                    <div class="go-basic-content">
+                        <ul class="ng-tns-c20-159 ng-trigger ng-trigger-down ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin: 16px 24px 0px; list-style: none; padding: 0px; color: rgb(68, 68, 68); font-family: 'Noto Sans', sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Hand-carry_3?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">1pc hand-carry bag</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Max. weight of 7kg</span>
+                                </div>
+                            </li>
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/r_eventseat?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">Random seat</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Seat assigned upon checking in</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                        <a href="#" class="rules">View fare rules</a>
+                        <button type="button" 
+                                class="button" 
+                                (click)="toggleBundle('go-basic')">
+                                Select bundle
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GO Easy Bundle -->
+                <div class="go-easy promo" [class.selected]="selectedBundle === 'go-easy'">
+                    <div class="header">
+                        <span class="title">
+                            <span class="title-text">GO Easy</span>
+                        </span>
+                        <span class="subtitle">
+                            <span class="subtitle-text">Get discounts on baggage and seats</span>
+                        </span>
+                    </div>
+                    <hr class="divider">
+                    <div class="go-easy-content">
+                        <span class="note ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin: 0px 24px; font-family: 'Noto Sans', sans-serif; font-weight: 400; font-size: 15px; line-height: 21px; letter-spacing: 0.004em; color: rgb(87, 87, 87); position: relative; background: none; width: auto; padding-bottom: 3px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+                            + PHP 1321.60 /guest
+                        </span>
+                        <ul class="ng-tns-c20-159 ng-trigger ng-trigger-down ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin: 16px 24px 0px; list-style: none; padding: 0px; color: rgb(0, 164, 229); font-family: 'Noto Sans', sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Hand-carry_2?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">1pc hand-carry bag</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Max. weight of 7kg</span>
+                                </div>
+                            </li>
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Baggage_1?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">1pc checked baggage</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Max. weight of 20kg</span>
+                                </div>
+                            </li>
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Seats_1?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">Preferred seat</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Standard seat of your choice</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                        <a href="#" class="rules">View fare rules</a>
+                        <button type="button" 
+                                class="button" 
+                                (click)="toggleBundle('go-easy')">
+                                Select bundle
+                        </button>
+                    </div>
+                </div>
+
+                <!-- GO Flexi Bundle -->
+                <div class="go-flexi promo" [class.selected]="selectedBundle === 'go-flexi'">
+                    <div class="header">
+                        <span class="title">
+                            <span class="title-text">GO Flexi</span>
+                        </span>
+                        <span class="subtitle">
+                            <span class="subtitle-text">Enjoy free cancellation when your plans change</span>
+                        </span>
+                    </div>
+                    <hr class="divider">
+                    <div class="smart-choice-tag" [class.selected]="selectedBundle === 'go-flexi'" style="box-sizing: border-box; appearance: none; outline: none; margin: 0px 23px; color: rgb(0, 96, 167); font-family: 'Noto Sans', sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; width: 304px; height: 29px; display: flex; justify-content: center; align-items: center; bottom: 489.6px; left: -25px; position: absolute; z-index: 1; border-radius: 8px 8px 0px 0px; padding: 4px 10px; gap: 4px;">
+                            <img class="star-img" src="https://i8.amplience.net/i/cebupacificair/star_icon" alt="starIcon" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 16px; height: 16px; line-height: 20.54px;">
+                            <p class="smart-choice-txt" style="box-sizing: border-box; appearance: none; outline: none; margin: 0px; color: rgb(0, 86, 135); font-weight: 680; font-family: 'Noto Sans'; font-size: 13px; line-height: 20.54px;">Smart Choice</p>
+                        </div>
+                    <div class="go-flexi-content">
+                        <span class="note ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin: 0px 24px; font-family: 'Noto Sans', sans-serif; font-weight: 400; font-size: 15px; line-height: 21px; letter-spacing: 0.004em; color: rgb(87, 87, 87); position: relative; background: none; width: auto; padding-bottom: 3px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+                            + PHP 2486.40 /guest
+                        </span>
+                        <ul class="ng-tns-c20-159 ng-trigger ng-trigger-down ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin: 16px 24px 0px; list-style: none; padding: 0px; color: rgb(0, 96, 167); font-family: 'Noto Sans', sans-serif; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Hand-carry_1?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">1pc hand-carry bag</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Max. weight of 7kg</span>
+                                </div>
+                            </li>
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Baggage?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">1pc checked baggage</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Max. weight of 20kg</span>
+                                </div>
+                            </li>
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Seats?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">Preferred seat</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Standard seat of your choice</span>
+                                </div>
+                            </li>
+                            <li class="ng-tns-c20-159 ng-star-inserted" style="box-sizing: border-box; appearance: none; outline: none; margin-bottom: 16px; font-family: 'Noto Sans', sans-serif; font-size: 13px; line-height: 19.5px; letter-spacing: 0.0025em; position: relative; color: rgb(190, 190, 190); display: flex;">
+                                <img class="ng-tns-c20-159" src="https://cdn.media.amplience.net/i/cebupacificair/Flexi?fmt=auto&amp;maxW=1920&amp;maxH=1920" alt="undefined" style="box-sizing: border-box; appearance: none; outline: none; vertical-align: middle; border-style: none; max-width: 100%; width: 15px; height: 15px; margin-right: 5px;">
+                                <div class="details ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; margin-top: -3px;">
+                                    <span class="details-title ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 13px; color: rgb(68, 68, 68);">CEB Flexi</span><br>
+                                    <span class="details-description ng-tns-c20-159" style="box-sizing: border-box; appearance: none; outline: none; font-size: 11px; color: rgb(68, 68, 68);">Convert your booking into non-expiring Travel Fund for future use</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                        <a href="#" class="rules">View fare rules</a>
+                        <button type="button" 
+                                class="button" 
+                                (click)="toggleBundle('go-flexi')">
+                                Select bundle
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="discount-note">
+                <p><strong>Note:</strong> PWD and/or Senior Citizen discounts do not apply for flights with promos or discounts. However, PWDs and senior citizens are still eligible for VAT exemption, in accordance with R.A. 10754 (Base Fare only).</p>
+            </div>
+        </div>
+    </div>
+</div>

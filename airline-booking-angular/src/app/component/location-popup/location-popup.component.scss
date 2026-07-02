@@ -1,0 +1,129 @@
+.destination-container {
+    // Variables
+    $primary-color: #333;
+    $secondary-color: #575757;
+    $hover-bg: #e9ecef;
+    $font-stack: 'Noto Sans', sans-serif;
+    $selected-color: #00a4e5;
+    background-color: white;
+  
+    // Container styles
+    border: 1px solid black;
+    padding: 16px 12px 16px 24px;
+    width: 393px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  
+    h6.title {
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 150%;
+      letter-spacing: 0.0025em;
+      color: $primary-color;
+      font-family: $font-stack;
+      margin: 0;
+      padding-bottom: 8px;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+  
+    .loading {
+      color: #666;
+      font-style: italic;
+      flex-shrink: 0;
+    }
+  
+    .scrollable-list {
+      flex: 1;
+      overflow-y: auto;
+      margin-top: 8px;
+  
+      & > *:first-child {
+        margin-top: 0;
+      }
+    }
+  
+    .country-list {
+      padding: 0;
+      column-count: 2;
+      -moz-column-count: 2;
+      column-gap: 20px;
+      list-style: none;
+      min-height: min-content;
+      color: #575757;
+  
+      li {
+        break-inside: avoid-column;
+        -webkit-column-break-inside: avoid;
+      }
+    }
+  
+    .country-item {
+      margin-bottom: 8px;
+      width: 100%;
+  
+      .country-anchor {
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 150%;
+        color: $secondary-color;
+        font-family: $font-stack;
+        text-decoration: none;
+        cursor: pointer;
+        padding: 2px 4px;
+        transition: all 0.2s ease;
+        box-sizing: border-box;
+  
+        &:hover {
+          background: $hover-bg;
+        }
+  
+        &.selected {
+          color: $selected-color;
+          font-weight: 500;
+        }
+      }
+    }
+  
+    .city-list {
+      list-style: none;
+      margin: 0;
+      width: 100%;
+  
+      .city-item {
+        margin-bottom: 8px;
+        position: relative;
+  
+        .city-link {
+          display: block;
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 150%;
+          color: $primary-color;
+          font-family: $font-stack;
+          padding-left: 16.14px;
+          text-decoration: none;
+          transition: background-color 0.2s ease;
+          cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+  
+          &:hover {
+            background-color: #f1f3f5;
+          }
+        }
+      }
+    }
+  }
